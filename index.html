@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nha Xinh Mart | Do gia dung cho to am hien dai</title>
+  <meta
+    name="description"
+    content="Web thuong mai dien tu chuyen do gia dung voi bo suu tap noi bat, gio hang tuong tac va trai nghiem mua sam hien dai."
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Nha Xinh Mart">
+        <span class="brand-mark">NX</span>
+        <span>
+          <strong>Nha Xinh Mart</strong>
+          <small>Gia dung cho to am go gon</small>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Dieu huong chinh">
+        <a href="#collections">Bo suu tap</a>
+        <a href="#products">San pham</a>
+        <a href="#benefits">Cam ket</a>
+        <a href="#stories">Khach hang</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <button class="ghost-btn" type="button">Khuyen mai hom nay</button>
+        <button class="cart-launch" id="cart-launch" type="button" aria-label="Mo gio hang">
+          Gio hang
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow">Khong can backend van mua sam nuot</p>
+          <h1>
+            Nang cap khong gian song voi
+            <span>do gia dung thong minh, gon dep va ben bi.</span>
+          </h1>
+          <p class="hero-text">
+            Tu noi chao chong dinh, hop dung thuc pham den may xay mini, tat ca duoc sap xep theo phong cach cua mot
+            cua hang thuong mai dien tu hien dai, am ap va de chot don.
+          </p>
+
+          <div class="hero-actions">
+            <a class="primary-btn" href="#products">Mua sam ngay</a>
+            <button class="secondary-btn" id="bundle-cta" type="button">Xem combo tiet kiem</button>
+          </div>
+
+          <div class="hero-stats">
+            <article>
+              <strong>150+</strong>
+              <span>Mat hang gia dung</span>
+            </article>
+            <article>
+              <strong>4.9/5</strong>
+              <span>Danh gia trung binh</span>
+            </article>
+            <article>
+              <strong>2h</strong>
+              <span>Dong goi noi thanh</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="panel-card spotlight">
+            <span class="panel-label">Best seller</span>
+            <h2>Combo bep gon dep</h2>
+            <p>Bo 4 mon giup can bep dong bo mau sac, tiet kiem 18% khi mua tron bo.</p>
+            <div class="price-line">
+              <strong>1.290.000d</strong>
+              <span>1.580.000d</span>
+            </div>
+          </div>
+
+          <div class="panel-grid">
+            <article class="mini-card">
+              <span>Giao nhanh</span>
+              <strong>Trong ngay</strong>
+            </article>
+            <article class="mini-card">
+              <span>Ho tro</span>
+              <strong>Tu van setup bep</strong>
+            </article>
+            <article class="mini-card accent">
+              <span>Uu dai</span>
+              <strong>Mien phi ship tu 499.000d</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="collections" id="collections">
+        <div class="section-heading">
+          <p class="eyebrow">Bo suu tap theo nhu cau</p>
+          <h2>Chon nhanh theo tung goc nha</h2>
+        </div>
+
+        <div class="collection-grid">
+          <article class="collection-card kitchen">
+            <div>
+              <p>Bep & Nau nuong</p>
+              <h3>Noi chao, dung cu che bien va may ho tro nau an hang ngay.</h3>
+            </div>
+            <button class="pill-btn" data-filter-target="Nau nuong" type="button">Xem ngay</button>
+          </article>
+
+          <article class="collection-card storage">
+            <div>
+              <p>Luu tru thong minh</p>
+              <h3>Hop, ke va phu kien giup nha cua gon gang, sach se hon.</h3>
+            </div>
+            <button class="pill-btn" data-filter-target="Luu tru" type="button">Kham pha</button>
+          </article>
+
+          <article class="collection-card cleaning">
+            <div>
+              <p>Ve sinh nha cua</p>
+              <h3>Tu cay lau den may hut bui cam tay cho nhip song ban ron.</h3>
+            </div>
+            <button class="pill-btn" data-filter-target="Ve sinh" type="button">Loc san pham</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="products" id="products">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Danh muc noi bat</p>
+            <h2>San pham ban chay cho ngoi nha hien dai</h2>
+          </div>
+          <span class="stock-chip" id="result-count">0 san pham</span>
+        </div>
+
+        <div class="toolbar">
+          <label class="search-field" for="search-input">
+            <span>Tim nhanh</span>
+            <input id="search-input" type="search" placeholder="Tim noi chao, hop dung, may xay...">
+          </label>
+
+          <label class="sort-field" for="sort-select">
+            <span>Sap xep</span>
+            <select id="sort-select">
+              <option value="featured">Noi bat</option>
+              <option value="price-asc">Gia tang dan</option>
+              <option value="price-desc">Gia giam dan</option>
+              <option value="rating">Danh gia cao nhat</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="filter-row" id="category-filters" role="tablist" aria-label="Loc danh muc"></div>
+        <div class="product-grid" id="product-grid"></div>
+      </section>
+
+      <section class="promo-band" id="promo">
+        <div>
+          <p class="eyebrow">Combo tiet kiem</p>
+          <h2>Setup can bep mini cho nguoi song mot minh hoac can ho moi</h2>
+        </div>
+        <div class="promo-content">
+          <p>
+            Gom noi chao chong dinh, hop dung thuc pham 6 mon, binh giu nhiet va bo khan bep. Phu hop de chuyen vao
+            nha moi, o ky tuc xa cao cap hoac lam qua tan gia.
+          </p>
+          <button class="primary-btn" id="add-bundle" type="button">Them combo vao gio</button>
+        </div>
+      </section>
+
+      <section class="benefits" id="benefits">
+        <div class="section-heading">
+          <p class="eyebrow">Ly do khach hang quay lai</p>
+          <h2>Trai nghiem mua sam cham chu tu luc xem den luc nhan hang</h2>
+        </div>
+
+        <div class="benefit-grid">
+          <article>
+            <h3>Chon do de dang</h3>
+            <p>Loc theo nhu cau, tim theo ten san pham va sap xep theo gia hoac danh gia ngay tren giao dien.</p>
+          </article>
+          <article>
+            <h3>Thong tin ro rang</h3>
+            <p>Gia, uu dai, mo ta ngan va diem danh gia deu hien thi ngay tai the san pham, khong can mo popup.</p>
+          </article>
+          <article>
+            <h3>Gio hang linh hoat</h3>
+            <p>Cap nhat so luong, xoa mat hang, tinh tam tinh va phi giao hang ngay trong drawer ben phai.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="stories" id="stories">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Phan hoi thuc te</p>
+            <h2>Khach hang danh gia cao su gon gang va tien loi</h2>
+          </div>
+        </div>
+
+        <div class="story-grid">
+          <article class="story-card">
+            <p>
+              "Minh setup ca bep cho can ho moi chi trong mot toi. Website de loc, hinh thuc bay ban dep va rat de chon
+              combo phu hop."
+            </p>
+            <strong>Lan Anh</strong>
+            <span>Khach mua combo nha moi</span>
+          </article>
+          <article class="story-card">
+            <p>
+              "Gio hang cap nhat ngay, xem tong tien cuc nhanh. Ban demo frontend nay da du de trinh bay y tuong voi
+              khach hoac nop bai."
+            </p>
+            <strong>Gia Huy</strong>
+            <span>Chu shop gia dung online</span>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>Nha Xinh Mart</strong>
+        <p>Do gia dung gon dep cho can bep, phong tam va goc song toi uu.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#products">Mua sam</a>
+        <a href="#benefits">Cam ket</a>
+        <a href="#stories">Danh gia</a>
+      </div>
+    </footer>
+  </div>
+
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <div>
+        <p class="eyebrow">Gio hang cua ban</p>
+        <h2>San pham da chon</h2>
+      </div>
+      <button class="icon-btn" id="close-cart" type="button" aria-label="Dong gio hang">x</button>
+    </div>
+
+    <div class="cart-progress" id="cart-progress">
+      <button class="step-chip active" type="button" data-stage-switch="cart">1. Gio hang</button>
+      <button class="step-chip" type="button" data-stage-switch="checkout">2. Thanh toan</button>
+    </div>
+
+    <div class="drawer-body">
+      <section class="drawer-stage active" id="cart-stage">
+        <div class="cart-items" id="cart-items"></div>
+
+        <div class="cart-summary">
+          <div class="summary-line">
+            <span>Tam tinh</span>
+            <strong id="subtotal">0d</strong>
+          </div>
+          <div class="summary-line">
+            <span>Phi giao hang</span>
+            <strong id="shipping">0d</strong>
+          </div>
+          <div class="summary-line total">
+            <span>Tong cong</span>
+            <strong id="total">0d</strong>
+          </div>
+          <button class="primary-btn full" id="checkout-btn" type="button">Sang buoc thanh toan</button>
+          <p class="note">Ban frontend demo nay se mo phong quy trinh thanh toan va xac nhan don hang.</p>
+        </div>
+      </section>
+
+      <section class="drawer-stage" id="checkout-stage" hidden>
+        <form class="checkout-form" id="checkout-form" novalidate>
+          <div class="checkout-scroll">
+            <section class="checkout-block">
+              <div class="checkout-heading">
+                <div>
+                  <p class="eyebrow">Thong tin giao hang</p>
+                  <h3>Cho biet noi nhan hang cua ban</h3>
+                </div>
+              </div>
+
+              <div class="field-grid">
+                <label class="form-field">
+                  <span>Ho ten nguoi nhan</span>
+                  <input id="customer-name" name="customerName" type="text" placeholder="Nguyen Van A" autocomplete="name">
+                </label>
+
+                <label class="form-field">
+                  <span>So dien thoai</span>
+                  <input id="customer-phone" name="customerPhone" type="tel" placeholder="09xxxxxxxx" inputmode="tel" autocomplete="tel">
+                </label>
+
+                <label class="form-field full-row">
+                  <span>Dia chi giao hang</span>
+                  <textarea id="customer-address" name="customerAddress" rows="3" placeholder="So nha, duong, phuong xa, quan huyen, tinh thanh"></textarea>
+                </label>
+
+                <label class="form-field full-row">
+                  <span>Ghi chu giao hang</span>
+                  <textarea id="customer-note" name="customerNote" rows="2" placeholder="Vi du: Goi truoc khi giao, giao gio hanh chinh..."></textarea>
+                </label>
+              </div>
+            </section>
+
+            <section class="checkout-block">
+              <div class="checkout-heading">
+                <div>
+                  <p class="eyebrow">Phuong thuc thanh toan</p>
+                  <h3>Chon cach thanh toan phu hop</h3>
+                </div>
+              </div>
+
+              <div class="payment-options">
+                <button class="payment-option active" type="button" data-payment-method="cod">
+                  <span class="payment-title">Tien mat khi nhan hang</span>
+                  <small>Thanh toan sau khi nhan duoc san pham tai nha.</small>
+                </button>
+
+                <button class="payment-option" type="button" data-payment-method="bank-card">
+                  <span class="payment-title">The ngan hang</span>
+                  <small>BIDV, VCB, OCB va cac ngan hang noi dia khac.</small>
+                </button>
+
+                <button class="payment-option" type="button" data-payment-method="visa">
+                  <span class="payment-title">The Visa</span>
+                  <small>Ngan hang va cong ty tai chinh nhu HomeCredit, SaigonHD...</small>
+                </button>
+              </div>
+
+              <div class="payment-detail" id="payment-detail"></div>
+            </section>
+
+            <section class="checkout-block">
+              <div class="checkout-heading">
+                <div>
+                  <p class="eyebrow">Tom tat don hang</p>
+                  <h3>Kiem tra nhanh truoc khi xac nhan</h3>
+                </div>
+              </div>
+
+              <div class="checkout-order-list" id="checkout-order-list"></div>
+
+              <div class="cart-summary checkout-summary">
+                <div class="summary-line">
+                  <span>Tam tinh</span>
+                  <strong id="checkout-subtotal">0d</strong>
+                </div>
+                <div class="summary-line">
+                  <span>Phi giao hang</span>
+                  <strong id="checkout-shipping">0d</strong>
+                </div>
+                <div class="summary-line total">
+                  <span>Tong cong</span>
+                  <strong id="checkout-total">0d</strong>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="checkout-actions">
+            <button class="secondary-btn" id="back-to-cart" type="button">Quay lai gio hang</button>
+            <button class="primary-btn" id="confirm-order" type="submit">Xac nhan dat hang</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </aside>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
