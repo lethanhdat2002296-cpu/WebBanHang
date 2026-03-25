@@ -49,6 +49,9 @@
           Gio hang
           <span class="cart-badge" id="cart-count">0</span>
         </button>
+        <button class="auth-launch" id="auth-trigger" type="button" aria-haspopup="dialog" aria-controls="auth-modal">
+          Dang nhap
+        </button>
       </div>
 
       <div class="mega-menu" id="mega-menu">
@@ -109,7 +112,7 @@
 
           <div class="hero-actions">
             <a class="primary-btn" href="#catalogue">Xem cua hang</a>
-            <button class="secondary-btn" id="bundle-cta" type="button">Xem khu deal bep</button>
+            <button class="secondary-btn" id="bundle-cta" type="button">Xem san pham bep</button>
           </div>
 
           <div class="hero-stats">
@@ -201,30 +204,6 @@
       </section>
 
       <section class="catalogue-section" id="catalogue">
-        <aside class="catalog-sidebar">
-          <article class="sidebar-card">
-            <p class="eyebrow">Loc nhu category page</p>
-            <h3>Chon nhanh theo nganh hang</h3>
-            <div class="sidebar-filter-list" id="sidebar-category-filters"></div>
-          </article>
-
-          <article class="sidebar-card">
-            <p class="eyebrow">Theo khong gian</p>
-            <h3>Tu bep den phong khach</h3>
-            <div class="sidebar-filter-list" id="sidebar-room-filters"></div>
-          </article>
-
-          <article class="sidebar-card accent">
-            <p class="eyebrow">Cam hung layout</p>
-            <h3>Vua co hero hien dai, vua co than trang dang category.</h3>
-            <ul class="sidebar-note-list">
-              <li>Nut chuyen doi luoi va danh sach</li>
-              <li>Phan trang frontend de demo thao tac</li>
-              <li>Gio hang va checkout van duoc giu lai</li>
-            </ul>
-          </article>
-        </aside>
-
         <div class="catalog-main">
           <div class="section-heading split">
             <div>
@@ -256,20 +235,8 @@
             </div>
           </div>
 
-          <div class="filter-row" id="category-filters" role="tablist" aria-label="Loc danh muc"></div>
           <div class="room-pill-row" id="room-filters" aria-label="Loc theo khong gian"></div>
-
-          <section class="catalog-banner" id="promo">
-            <div>
-              <p class="eyebrow">Combo nha moi</p>
-              <h3>Set can bep gon dep cho can ho mini</h3>
-            </div>
-            <p>
-              Gom bo noi mini, ke gia vi, hop luu tru va khan bep. Phu hop de mo dau bo suu tap trong gio hang va test
-              flow checkout.
-            </p>
-            <button class="primary-btn" id="add-bundle" type="button">Them combo vao gio</button>
-          </section>
+          <div class="room-group-row" id="room-group-filters" aria-label="Loc theo nhom con" hidden></div>
 
           <div class="product-grid" id="product-grid"></div>
           <div class="pagination" id="pagination"></div>
@@ -330,7 +297,6 @@
       </div>
       <div class="footer-links">
         <a href="#catalogue">Cua hang</a>
-        <a href="#promo">Combo</a>
         <a href="#promotions">Khuyen mai</a>
       </div>
     </footer>
@@ -469,6 +435,106 @@
       </section>
     </div>
   </aside>
+
+  <section class="auth-modal" id="auth-modal" aria-hidden="true">
+    <div class="auth-dialog">
+      <button class="icon-btn auth-close" id="auth-close" type="button" aria-label="Dong hop thoai">x</button>
+
+      <section class="auth-panel" id="auth-login-view">
+        <div class="auth-heading">
+          <p class="eyebrow">Dang nhap thanh vien</p>
+          <h2>Dang nhap de luu gio hang va nhan khuyen mai</h2>
+          <p class="note">Frontend mo phong: popup nay uu tien dang nhap nhanh, con dang ky thanh vien duoc mo rieng tu menu Dich vu.</p>
+        </div>
+
+        <form class="auth-form" id="auth-login-form" novalidate>
+          <div class="field-grid auth-grid">
+            <label class="form-field full-row">
+              <span>User</span>
+              <input name="loginUser" type="text" placeholder="Nhap user hoac email" autocomplete="username">
+            </label>
+
+            <label class="form-field full-row">
+              <span>Pass</span>
+              <input name="loginPass" type="password" placeholder="Nhap mat khau" autocomplete="current-password">
+            </label>
+          </div>
+
+          <button class="primary-btn full" type="submit">Dang nhap</button>
+        </form>
+
+        <div class="auth-tools">
+          <button class="link-btn auth-toggle-link" id="auth-social-toggle" type="button" aria-expanded="false" aria-controls="auth-socials">
+            Phuong thuc dang nhap khac
+          </button>
+        </div>
+
+        <div class="auth-socials" id="auth-socials" hidden>
+          <button class="auth-social-btn auth-social-btn--google" type="button" data-social-login="Google" aria-label="Dang nhap bang Google" title="Google">
+            <span class="auth-social-mark" aria-hidden="true">G</span>
+          </button>
+          <button class="auth-social-btn auth-social-btn--facebook" type="button" data-social-login="Facebook" aria-label="Dang nhap bang Facebook" title="Facebook">
+            <span class="auth-social-mark" aria-hidden="true">f</span>
+          </button>
+          <button class="auth-social-btn auth-social-btn--zalo" type="button" data-social-login="Zalo" aria-label="Dang nhap bang Zalo" title="Zalo">
+            <span class="auth-social-mark" aria-hidden="true">Z</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="auth-panel" id="auth-register-view" hidden>
+        <div class="auth-heading">
+          <p class="eyebrow">Dang ky thanh vien</p>
+          <h2>Tao tai khoan moi de nhan uu dai va tich diem</h2>
+          <p class="note">Nhap day du thong tin de mo phong quy trinh dang ky thanh vien va xac thuc OTP.</p>
+        </div>
+
+        <form class="auth-form" id="auth-register-form" novalidate>
+          <div class="field-grid auth-grid">
+            <label class="form-field">
+              <span>Ho</span>
+              <input name="registerLastName" type="text" placeholder="Nguyen" autocomplete="family-name">
+            </label>
+
+            <label class="form-field">
+              <span>Ten</span>
+              <input name="registerFirstName" type="text" placeholder="An" autocomplete="given-name">
+            </label>
+
+            <label class="form-field">
+              <span>So dien thoai</span>
+              <input name="registerPhone" type="tel" placeholder="09xxxxxxxx" inputmode="tel" autocomplete="tel">
+            </label>
+
+            <label class="form-field">
+              <span>Email</span>
+              <input name="registerEmail" type="email" placeholder="ban@email.com" autocomplete="email">
+            </label>
+
+            <label class="form-field">
+              <span>User</span>
+              <input name="registerUser" type="text" placeholder="taikhoanmoing" autocomplete="username">
+            </label>
+
+            <label class="form-field">
+              <span>Pass</span>
+              <input name="registerPass" type="password" placeholder="Tao mat khau" autocomplete="new-password">
+            </label>
+
+            <label class="form-field full-row">
+              <span>Ma xac nhan OTP</span>
+              <input name="registerOtp" type="text" placeholder="Nhap ma OTP" inputmode="numeric" autocomplete="one-time-code">
+            </label>
+          </div>
+
+          <div class="auth-actions">
+            <button class="secondary-btn" type="button" data-auth-view="login">Quay lai dang nhap</button>
+            <button class="primary-btn" type="submit">Dang ky thanh vien</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </section>
 
   <div class="overlay" id="overlay" hidden></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
