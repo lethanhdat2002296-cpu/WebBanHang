@@ -44,7 +44,8 @@ body {
 }
 
 body.cart-open,
-body.menu-open {
+body.menu-open,
+body.auth-open {
   overflow: hidden;
 }
 
@@ -188,6 +189,7 @@ body.menu-open .site-header {
 .view-switch,
 .filter-row,
 .room-pill-row,
+.room-group-row,
 .cart-header,
 .summary-line,
 .site-footer {
@@ -283,6 +285,22 @@ body.menu-open .site-header {
   gap: 10px;
   padding: 10px 16px 10px 18px;
   box-shadow: 0 10px 24px rgba(202, 117, 66, 0.2);
+}
+
+.auth-launch {
+  min-height: 48px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  color: #fffaf4;
+  background: linear-gradient(135deg, var(--brand), var(--brand-deep));
+  box-shadow: 0 10px 24px rgba(59, 42, 30, 0.16);
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+}
+
+.auth-launch:hover {
+  opacity: 0.96;
+  transform: translateY(-2px);
 }
 
 .cart-badge {
@@ -634,6 +652,18 @@ body.menu-open .site-header {
   border: 1px solid rgba(90, 63, 44, 0.1);
 }
 
+.service-card.interactive {
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.service-card.interactive:hover,
+.service-card.interactive:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(202, 113, 54, 0.32);
+  box-shadow: 0 20px 34px rgba(90, 63, 44, 0.12);
+}
+
 .service-card h4 {
   margin: 0 0 10px;
   font-size: 1.05rem;
@@ -948,8 +978,8 @@ body.menu-open .site-header {
 
 .catalogue-section {
   display: grid;
-  grid-template-columns: 290px minmax(0, 1fr);
-  gap: 20px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   margin-bottom: 24px;
 }
 
@@ -1075,7 +1105,8 @@ body.menu-open .site-header {
 }
 
 .filter-row,
-.room-pill-row {
+.room-pill-row,
+.room-group-row {
   gap: 10px;
   flex-wrap: wrap;
 }
@@ -1085,11 +1116,16 @@ body.menu-open .site-header {
 }
 
 .room-pill-row {
+  margin-bottom: 10px;
+}
+
+.room-group-row {
   margin-bottom: 18px;
 }
 
 .filter-chip,
-.room-pill {
+.room-pill,
+.room-group-pill {
   min-height: 42px;
   padding: 0 16px;
   color: var(--text-muted);
@@ -1098,7 +1134,8 @@ body.menu-open .site-header {
 }
 
 .filter-chip.active,
-.room-pill.active {
+.room-pill.active,
+.room-group-pill.active {
   color: #fffaf4;
   background: var(--olive);
 }
@@ -1912,6 +1949,144 @@ body.menu-open .site-header {
   width: 100%;
 }
 
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 180ms ease, visibility 180ms ease;
+  z-index: 26;
+}
+
+.auth-modal.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.auth-dialog {
+  position: relative;
+  width: min(760px, 100%);
+  max-height: min(88vh, 820px);
+  overflow: auto;
+  padding: 28px;
+  border-radius: 30px;
+  background: rgba(255, 250, 243, 0.98);
+  border: 1px solid rgba(90, 63, 44, 0.12);
+  box-shadow: 0 28px 68px rgba(27, 20, 15, 0.22);
+}
+
+.auth-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+}
+
+.auth-panel,
+.auth-form,
+.auth-heading,
+.auth-socials,
+.auth-actions {
+  display: grid;
+}
+
+.auth-panel {
+  gap: 18px;
+}
+
+.auth-heading {
+  gap: 10px;
+}
+
+.auth-heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  line-height: 1.06;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.auth-heading .note {
+  margin: 0;
+}
+
+.auth-form {
+  gap: 16px;
+}
+
+.auth-grid {
+  gap: 12px;
+}
+
+.auth-tools {
+  display: flex;
+  justify-content: center;
+}
+
+.auth-toggle-link {
+  min-height: 36px;
+  padding: 0 4px;
+}
+
+.auth-socials {
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  gap: 14px;
+}
+
+.auth-social-btn {
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(90, 63, 44, 0.08);
+  font-weight: 700;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.auth-social-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.auth-social-mark {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+.auth-social-btn--google .auth-social-mark {
+  color: #ffffff;
+  background: #db4437;
+}
+
+.auth-social-btn--facebook .auth-social-mark {
+  color: #ffffff;
+  background: #1877f2;
+  text-transform: lowercase;
+}
+
+.auth-social-btn--zalo .auth-social-mark {
+  color: #0a6cff;
+  background: rgba(10, 108, 255, 0.14);
+}
+
+.auth-actions {
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -2048,9 +2223,16 @@ body.cart-open .back-to-top {
   .mega-menu,
   .store-menu,
   .service-menu {
-    position: static;
-    width: 100%;
+    position: fixed;
+    top: 14px;
+    left: 9px;
+    right: 9px;
+    width: auto;
+    max-height: calc(100dvh - 28px);
+    overflow: auto;
     grid-template-columns: 1fr;
+    padding: 12px;
+    border-radius: 24px;
   }
 
   .mega-menu-sidebar,
@@ -2100,7 +2282,8 @@ body.cart-open .back-to-top {
   }
 
   .ghost-btn,
-  .cart-launch {
+  .cart-launch,
+  .auth-launch {
     flex: 1;
     justify-content: center;
   }
@@ -2143,6 +2326,10 @@ body.cart-open .back-to-top {
 
   .cart-drawer {
     width: 100%;
+  }
+
+  .auth-dialog {
+    width: min(680px, 100%);
   }
 
   .back-to-top {
@@ -2219,23 +2406,27 @@ body.cart-open .back-to-top {
   }
 
   .ghost-btn,
-  .cart-launch {
+  .cart-launch,
+  .auth-launch {
     width: 100%;
   }
 
   .nav-trigger,
   .header-nav a,
   .ghost-btn,
-  .cart-launch {
+  .cart-launch,
+  .auth-launch {
     min-height: 46px;
   }
 
   .mega-menu,
   .store-menu,
   .service-menu {
-    max-height: min(68vh, 560px);
-    overflow: auto;
-    padding: 12px;
+    top: 10px;
+    left: 6px;
+    right: 6px;
+    max-height: calc(100dvh - 20px);
+    padding: 10px;
   }
 
   .mega-menu-heading,
@@ -2355,6 +2546,28 @@ body.cart-open .back-to-top {
 
   .cart-drawer {
     padding: 16px;
+  }
+
+  .auth-modal {
+    padding: 12px;
+  }
+
+  .auth-dialog {
+    padding: 20px 16px 16px;
+  }
+
+  .auth-close {
+    top: 12px;
+    right: 12px;
+  }
+
+  .auth-socials {
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+  }
+
+  .auth-actions {
+    grid-template-columns: 1fr;
   }
 
   .cart-item {
