@@ -20,14 +20,13 @@ const products = [
   { id: "ghe-gap-san-vuon", name: "Ghe gap san vuon khung sat", category: "Ban an & Phong khach", room: "Sân Vườn", price: 389000, originalPrice: 459000, rating: 4.5, stock: 7, featuredRank: 19, badge: "Ngoai troi", description: "Ghe gap de xep gon sau khi su dung, phu hop san vuon nho va ban cong.", tags: ["Ghe san vuon", "Ngoai troi", "Gap gon"], glyph: "GHE", color: "#c3d3b6" }
 ];
 
-const bundleProduct = { id: "combo-bep-nha-moi", name: "Combo can bep nha moi", category: "Combo", room: "Nhà Bếp", price: 1390000, originalPrice: 1690000, rating: 5, stock: 5, featuredRank: 0, badge: "Combo tiet kiem", description: "Gom bo noi mini, ke gia vi, hop luu tru va khan bep cho can ho moi setup.", tags: ["4 mon", "Nha Bep", "Tiet kiem 18%"], glyph: "SET", color: "#e8c38d" };
-
 const STORAGE_KEY = "nha-xinh-mart-cart";
 const SHIPPING_THRESHOLD = 699000;
 const SHIPPING_FEE = 30000;
 const PAGE_SIZE = 6;
 const DOMESTIC_BANKS = ["BIDV", "VCB", "OCB", "Techcombank", "VPBank", "Agribank"];
 const VISA_PROVIDERS = ["BIDV", "VCB", "OCB", "Techcombank", "HomeCredit", "SaigonHD", "Mcredit"];
+const ALL_ROOM_GROUP = "Tat ca nhom con";
 const megaMenuData = {
   "Phòng Khách": [
     { title: "Noi that chinh", items: ["Tivi", "Sofa", "Ban tra", "Ke tivi"] },
@@ -128,7 +127,8 @@ const serviceMenuData = {
     {
       title: "Dang ky thanh vien",
       description: "Tao tai khoan thanh vien de luu thong tin mua hang, nhan uu dai sinh nhat, tich diem va cap nhat deal moi som hon.",
-      note: "Dang ky mien phi"
+      note: "Dang ky mien phi",
+      action: "open-register"
     }
   ]
 };
@@ -176,6 +176,7 @@ const state = {
   search: "",
   category: "Tat ca",
   room: "Tat ca khong gian",
+  roomGroup: ALL_ROOM_GROUP,
   sort: "featured",
   view: "grid",
   page: 1,
@@ -183,10 +184,13 @@ const state = {
   isMegaMenuOpen: false,
   isStoreMenuOpen: false,
   isServiceMenuOpen: false,
+  isAuthModalOpen: false,
   megaMenuRoom: "Phòng Khách",
   cart: loadCart(),
   storeCity: "Ho Chi Minh",
   serviceGroup: "Cham soc KH 24/7",
+  authView: "login",
+  showAuthSocials: false,
   checkoutStep: "cart",
   paymentMethod: "cod",
   checkoutData: getDefaultCheckoutData()
@@ -196,10 +200,8 @@ const categories = ["Tat ca", ...new Set(products.map((item) => item.category))]
 const rooms = ["Tat ca khong gian", ...new Set(products.map((item) => item.room))];
 
 const resultCount = document.getElementById("result-count");
-const categoryFilters = document.getElementById("category-filters");
 const roomFilters = document.getElementById("room-filters");
-const sidebarCategoryFilters = document.getElementById("sidebar-category-filters");
-const sidebarRoomFilters = document.getElementById("sidebar-room-filters");
+const roomGroupFilters = document.getElementById("room-group-filters");
 const productGrid = document.getElementById("product-grid");
 const pagination = document.getElementById("pagination");
 const searchInput = document.getElementById("search-input");
@@ -248,17 +250,25 @@ const checkoutForm = document.getElementById("checkout-form");
 const backToCartBtn = document.getElementById("back-to-cart");
 const paymentDetail = document.getElementById("payment-detail");
 const checkoutOrderList = document.getElementById("checkout-order-list");
-const addBundleBtn = document.getElementById("add-bundle");
 const bundleCtaBtn = document.getElementById("bundle-cta");
 const stageSwitchButtons = document.querySelectorAll("[data-stage-switch]");
 const paymentOptionButtons = document.querySelectorAll("[data-payment-method]");
+const authTrigger = document.getElementById("auth-trigger");
+const authModal = document.getElementById("auth-modal");
+const authCloseBtn = document.getElementById("auth-close");
+const authLoginView = document.getElementById("auth-login-view");
+const authRegisterView = document.getElementById("auth-register-view");
+const authLoginForm = document.getElementById("auth-login-form");
+const authRegisterForm = document.getElementById("auth-register-form");
+const authSocialToggle = document.getElementById("auth-social-toggle");
+const authSocials = document.getElementById("auth-socials");
 let promotionAutoplayId = null;
 
-renderSidebarFilters();
 renderTopFilters();
 renderMegaMenu();
 renderStoreMenu();
 renderServiceMenu();
+renderAuthModal();
 renderPromotionCarousel();
 startPromotionAutoplay();
 renderProducts();
@@ -290,6 +300,7 @@ cartLaunch.addEventListener("click", () => {
   toggleMegaMenu(false);
   toggleStoreMenu(false);
   toggleServiceMenu(false);
+  toggleAuthModal(false);
   toggleCart(true);
 });
 closeCartBtn.addEventListener("click", () => toggleCart(false));
@@ -298,6 +309,7 @@ overlay.addEventListener("click", () => {
   toggleStoreMenu(false);
   toggleServiceMenu(false);
   toggleCart(false);
+  toggleAuthModal(false);
 });
 categoryTrigger.addEventListener("click", () => {
   const nextOpen = !state.isMegaMenuOpen;
@@ -305,6 +317,7 @@ categoryTrigger.addEventListener("click", () => {
     toggleCart(false);
     toggleStoreMenu(false);
     toggleServiceMenu(false);
+    toggleAuthModal(false);
   }
   toggleMegaMenu(nextOpen);
 });
@@ -314,6 +327,7 @@ storeTrigger.addEventListener("click", () => {
     toggleCart(false);
     toggleMegaMenu(false);
     toggleServiceMenu(false);
+    toggleAuthModal(false);
   }
   toggleStoreMenu(nextOpen);
 });
@@ -323,9 +337,18 @@ serviceTrigger.addEventListener("click", () => {
     toggleCart(false);
     toggleMegaMenu(false);
     toggleStoreMenu(false);
+    toggleAuthModal(false);
   }
   toggleServiceMenu(nextOpen);
 });
+authTrigger.addEventListener("click", () => {
+  toggleCart(false);
+  toggleMegaMenu(false);
+  toggleStoreMenu(false);
+  toggleServiceMenu(false);
+  toggleAuthModal(true, "login");
+});
+authCloseBtn.addEventListener("click", () => toggleAuthModal(false));
 backToTopButton.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
@@ -353,6 +376,7 @@ document.addEventListener("keydown", (event) => {
     toggleMegaMenu(false);
     toggleStoreMenu(false);
     toggleServiceMenu(false);
+    toggleAuthModal(false);
   }
 });
 
@@ -365,13 +389,13 @@ checkoutBtn.addEventListener("click", () => {
   setCheckoutStep("checkout");
 });
 
-addBundleBtn.addEventListener("click", () => {
-  addToCart(bundleProduct.id, bundleProduct);
-  toggleCart(true);
-});
-
 bundleCtaBtn.addEventListener("click", () => {
-  document.getElementById("promo").scrollIntoView({ behavior: "smooth", block: "center" });
+  const kitchenProduct = products.find((product) => product.category === "Noi & Chao") || products.find((product) => product.tags.includes("Nha Bep"));
+  if (kitchenProduct) {
+    setRoomFilter(kitchenProduct.room);
+  }
+
+  document.getElementById("catalogue").scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 promotionPrevBtn.addEventListener("click", () => {
@@ -419,6 +443,10 @@ backToCartBtn.addEventListener("click", () => {
 checkoutForm.addEventListener("input", handleCheckoutFieldUpdate);
 checkoutForm.addEventListener("change", handleCheckoutFieldUpdate);
 checkoutForm.addEventListener("submit", handleCheckoutSubmit);
+authLoginForm.addEventListener("submit", handleAuthLoginSubmit);
+authRegisterForm.addEventListener("submit", handleAuthRegisterSubmit);
+authModal.addEventListener("click", handleAuthModalClick);
+serviceMenu.addEventListener("keydown", handleServiceMenuKeydown);
 
 document.addEventListener("click", (event) => {
   const target = event.target;
@@ -457,7 +485,9 @@ document.addEventListener("click", (event) => {
       return searchTarget.includes(item.toLowerCase());
     });
 
+    state.category = "Tat ca";
     state.room = room;
+    state.roomGroup = ALL_ROOM_GROUP;
     state.search = hasMatch ? item.toLowerCase() : "";
     searchInput.value = hasMatch ? item : "";
     state.page = 1;
@@ -476,9 +506,22 @@ document.addEventListener("click", (event) => {
     renderStoreMenu();
   }
 
-  if (target.matches("[data-service-group]")) {
-    state.serviceGroup = target.dataset.serviceGroup || "Cham soc KH 24/7";
+  const serviceGroupButton = target.closest("[data-service-group]");
+  if (serviceGroupButton instanceof HTMLElement) {
+    const nextGroup = serviceGroupButton.dataset.serviceGroup || "Cham soc KH 24/7";
+    state.serviceGroup = nextGroup;
     renderServiceMenu();
+
+    if (nextGroup === "Dang ky thanh vien") {
+      toggleServiceMenu(false);
+      toggleAuthModal(true, "register");
+    }
+  }
+
+  const serviceActionCard = target.closest("[data-service-action]");
+  if (serviceActionCard instanceof HTMLElement && serviceActionCard.dataset.serviceAction === "open-register") {
+    toggleServiceMenu(false);
+    toggleAuthModal(true, "register");
   }
 
   if (target.matches("[data-category-filter]")) {
@@ -487,6 +530,10 @@ document.addEventListener("click", (event) => {
 
   if (target.matches("[data-room-filter]")) {
     setRoomFilter(target.dataset.roomFilter || "Tat ca khong gian");
+  }
+
+  if (target.matches("[data-room-group]")) {
+    setRoomGroup(target.dataset.roomGroup || ALL_ROOM_GROUP);
   }
 
   if (target.matches("[data-add-to-cart]")) {
@@ -583,12 +630,21 @@ function renderServiceMenu() {
 
   serviceMenuTitle.textContent = state.serviceGroup;
   serviceCardList.innerHTML = cards.map((card) => `
-    <article class="service-card">
+    <article class="service-card ${card.action ? "interactive" : ""}" ${card.action ? `tabindex="0" role="button" data-service-action="${card.action}"` : ""}>
       <h4>${card.title}</h4>
       <p>${card.description}</p>
       <span class="service-card-note">${card.note}</span>
     </article>
   `).join("");
+}
+
+function renderAuthModal() {
+  setAuthView(state.authView);
+  authSocials.hidden = !state.showAuthSocials || state.authView !== "login";
+  authSocialToggle.setAttribute("aria-expanded", String(state.showAuthSocials && state.authView === "login"));
+  authModal.classList.toggle("open", state.isAuthModalOpen);
+  authModal.setAttribute("aria-hidden", String(!state.isAuthModalOpen));
+  document.body.classList.toggle("auth-open", state.isAuthModalOpen);
 }
 
 function renderPromotionCarousel() {
@@ -716,34 +772,65 @@ function syncMenuState() {
   document.body.classList.toggle("menu-open", state.isMegaMenuOpen || state.isStoreMenuOpen || state.isServiceMenuOpen);
 }
 
-function renderSidebarFilters() {
-  sidebarCategoryFilters.innerHTML = categories.map((category) => `
-    <button class="sidebar-filter-btn ${state.category === category ? "active" : ""}" type="button" data-category-filter="${category}">
-      ${category}
-    </button>
-  `).join("");
+function setAuthView(view) {
+  state.authView = view === "register" ? "register" : "login";
+  if (state.authView !== "login") {
+    state.showAuthSocials = false;
+  }
+  authLoginView.hidden = state.authView !== "login";
+  authRegisterView.hidden = state.authView !== "register";
+}
 
-  sidebarRoomFilters.innerHTML = rooms.map((room) => `
-    <button class="sidebar-filter-btn ${state.room === room ? "active" : ""}" type="button" data-room-filter="${room}">
-      ${room}
-    </button>
-  `).join("");
+function toggleAuthModal(isOpen, view = state.authView) {
+  setAuthView(view);
+  if (!isOpen || state.authView !== "login") {
+    state.showAuthSocials = false;
+  }
+  state.isAuthModalOpen = isOpen;
+  renderAuthModal();
+  syncOverlay();
+
+  if (!isOpen) {
+    return;
+  }
+
+  const focusSelector = state.authView === "register" ? 'input[name="registerLastName"]' : 'input[name="loginUser"]';
+  const focusTarget = authModal.querySelector(focusSelector);
+
+  window.setTimeout(() => {
+    if (focusTarget instanceof HTMLInputElement) {
+      focusTarget.focus();
+    }
+  }, 40);
 }
 
 function renderTopFilters() {
-  categoryFilters.innerHTML = categories.map((category) => `
-    <button class="filter-chip ${state.category === category ? "active" : ""}" type="button" data-category-filter="${category}">
-      ${category}
-    </button>
-  `).join("");
-
   roomFilters.innerHTML = rooms.map((room) => `
     <button class="room-pill ${state.room === room ? "active" : ""}" type="button" data-room-filter="${room}">
       ${room}
     </button>
   `).join("");
 
+  const activeRoomGroups = getActiveRoomGroups();
+  roomGroupFilters.hidden = activeRoomGroups.length === 0;
+  roomGroupFilters.innerHTML = activeRoomGroups.length ? [
+    `<button class="room-group-pill ${state.roomGroup === ALL_ROOM_GROUP ? "active" : ""}" type="button" data-room-group="${ALL_ROOM_GROUP}">${ALL_ROOM_GROUP}</button>`,
+    ...activeRoomGroups.map((group) => `
+      <button class="room-group-pill ${state.roomGroup === group.title ? "active" : ""}" type="button" data-room-group="${group.title}">
+        ${group.title}
+      </button>
+    `)
+  ].join("") : "";
+
   renderViewButtons();
+}
+
+function getActiveRoomGroups() {
+  if (state.room === "Tat ca khong gian") {
+    return [];
+  }
+
+  return megaMenuData[state.room] || [];
 }
 
 function renderViewButtons() {
@@ -765,7 +852,6 @@ function renderProducts() {
 
   resultCount.textContent = `${filteredProducts.length} san pham`;
   productGrid.classList.toggle("list-mode", state.view === "list");
-  renderSidebarFilters();
   renderTopFilters();
 
   if (!filteredProducts.length) {
@@ -873,7 +959,15 @@ function setCategoryFilter(category) {
 }
 
 function setRoomFilter(room) {
+  state.category = "Tat ca";
   state.room = room;
+  state.roomGroup = ALL_ROOM_GROUP;
+  state.page = 1;
+  renderProducts();
+}
+
+function setRoomGroup(group) {
+  state.roomGroup = group;
   state.page = 1;
   renderProducts();
 }
@@ -882,6 +976,22 @@ function getFilteredProducts() {
   return [...products]
     .filter((product) => state.category === "Tat ca" || product.category === state.category)
     .filter((product) => state.room === "Tat ca khong gian" || product.room === state.room)
+    .filter((product) => {
+      if (state.room === "Tat ca khong gian" || state.roomGroup === ALL_ROOM_GROUP) {
+        return true;
+      }
+
+      const roomGroups = megaMenuData[state.room] || [];
+      const activeGroup = roomGroups.find((group) => group.title === state.roomGroup);
+      if (!activeGroup) {
+        return true;
+      }
+
+      const groupKeywords = [activeGroup.title, ...activeGroup.items].map((item) => item.toLowerCase());
+      const searchTarget = `${product.name} ${product.category} ${product.room} ${product.description} ${product.tags.join(" ")}`.toLowerCase();
+
+      return groupKeywords.some((keyword) => searchTarget.includes(keyword));
+    })
     .filter((product) => {
       if (!state.search) {
         return true;
@@ -1237,9 +1347,117 @@ function toggleCart(isOpen) {
 }
 
 function syncOverlay() {
-  const shouldShowOverlay = state.isMegaMenuOpen || state.isStoreMenuOpen || state.isServiceMenuOpen || cartDrawer.classList.contains("open");
+  const shouldShowOverlay = state.isMegaMenuOpen || state.isStoreMenuOpen || state.isServiceMenuOpen || state.isAuthModalOpen || cartDrawer.classList.contains("open");
   overlay.hidden = !shouldShowOverlay;
   overlay.classList.toggle("visible", shouldShowOverlay);
+}
+
+function handleAuthModalClick(event) {
+  const target = event.target;
+
+  if (!(target instanceof HTMLElement)) {
+    return;
+  }
+
+  const authViewTrigger = target.closest("[data-auth-view]");
+  if (authViewTrigger instanceof HTMLElement) {
+    toggleAuthModal(true, authViewTrigger.dataset.authView || "login");
+    return;
+  }
+
+  const socialToggleTrigger = target.closest("#auth-social-toggle");
+  if (socialToggleTrigger instanceof HTMLElement) {
+    state.showAuthSocials = !state.showAuthSocials;
+    renderAuthModal();
+    return;
+  }
+
+  const socialTrigger = target.closest("[data-social-login]");
+  if (socialTrigger instanceof HTMLElement) {
+    const provider = socialTrigger.dataset.socialLogin || "mang xa hoi";
+    showToast(`Dang nhap bang ${provider} dang o che do demo frontend.`);
+    toggleAuthModal(false, "login");
+  }
+}
+
+function handleServiceMenuKeydown(event) {
+  if (event.key !== "Enter" && event.key !== " ") {
+    return;
+  }
+
+  const target = event.target;
+  if (!(target instanceof HTMLElement)) {
+    return;
+  }
+
+  const serviceActionCard = target.closest("[data-service-action]");
+  if (!(serviceActionCard instanceof HTMLElement) || serviceActionCard.dataset.serviceAction !== "open-register") {
+    return;
+  }
+
+  event.preventDefault();
+  toggleServiceMenu(false);
+  toggleAuthModal(true, "register");
+}
+
+function handleAuthLoginSubmit(event) {
+  event.preventDefault();
+
+  const formData = new FormData(authLoginForm);
+  const loginUser = String(formData.get("loginUser") || "").trim();
+  const loginPass = String(formData.get("loginPass") || "").trim();
+
+  if (!loginUser || !loginPass) {
+    showToast("Vui long nhap day du user va pass de dang nhap.");
+    return;
+  }
+
+  authLoginForm.reset();
+  toggleAuthModal(false, "login");
+  showToast(`Da dang nhap demo cho tai khoan ${loginUser}.`);
+}
+
+function handleAuthRegisterSubmit(event) {
+  event.preventDefault();
+
+  const formData = new FormData(authRegisterForm);
+  const registerLastName = String(formData.get("registerLastName") || "").trim();
+  const registerFirstName = String(formData.get("registerFirstName") || "").trim();
+  const registerPhone = String(formData.get("registerPhone") || "").replace(/\D/g, "");
+  const registerEmail = String(formData.get("registerEmail") || "").trim();
+  const registerUser = String(formData.get("registerUser") || "").trim();
+  const registerPass = String(formData.get("registerPass") || "").trim();
+  const registerOtp = String(formData.get("registerOtp") || "").trim();
+
+  if (!registerLastName || !registerFirstName || !registerPhone || !registerEmail || !registerUser || !registerPass || !registerOtp) {
+    showToast("Vui long dien day du ho ten, SDT, email, user, pass va ma OTP.");
+    return;
+  }
+
+  if (!/^\d{9,11}$/.test(registerPhone)) {
+    showToast("So dien thoai chua hop le. Ban hay nhap 9 den 11 chu so.");
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(registerEmail)) {
+    showToast("Email chua dung dinh dang. Ban kiem tra lai nhe.");
+    return;
+  }
+
+  if (registerPass.length < 6) {
+    showToast("Mat khau demo can it nhat 6 ky tu.");
+    return;
+  }
+
+  if (!/^\d{4,8}$/.test(registerOtp)) {
+    showToast("Ma OTP chi nen gom 4 den 8 chu so.");
+    return;
+  }
+
+  const memberName = `${registerLastName} ${registerFirstName}`.trim();
+  authRegisterForm.reset();
+  toggleAuthModal(false, "login");
+  showToast(`Da tao tai khoan demo cho ${memberName || registerUser}.`);
 }
 
 function loadCart() {
@@ -1257,7 +1475,7 @@ function persistCart() {
 }
 
 function findProduct(productId) {
-  return products.find((product) => product.id === productId) || (bundleProduct.id === productId ? bundleProduct : null);
+  return products.find((product) => product.id === productId) || null;
 }
 
 function getCartTotals() {
