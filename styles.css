@@ -1,4 +1,5 @@
 :root {
+  --font-ui: "Helvetica Neue", Helvetica, Arial, "Noto Sans", sans-serif;
   --bg: #f7f2ea;
   --bg-soft: #fffdf9;
   --surface: #fffaf3;
@@ -37,7 +38,7 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--text);
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-ui);
   background:
     radial-gradient(circle at left top, rgba(234, 208, 187, 0.55), transparent 24%),
     linear-gradient(180deg, #fcf8f1 0%, #f6efe5 100%);
@@ -155,7 +156,8 @@ body.menu-open .site-header {
 .board-card h2,
 .section-heading h2,
 .catalog-banner h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-ui);
+  font-weight: 700;
 }
 
 .brand strong {
@@ -390,7 +392,8 @@ body.menu-open .site-header {
 .mega-menu-heading h3 {
   margin: 0;
   font-size: 1.5rem;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-ui);
+  font-weight: 700;
 }
 
 .mega-menu-columns {
@@ -499,7 +502,8 @@ body.menu-open .site-header {
 .store-menu-heading h3 {
   margin: 0;
   font-size: 1.5rem;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-ui);
+  font-weight: 700;
 }
 
 .store-menu-badge {
@@ -625,7 +629,8 @@ body.menu-open .site-header {
 .service-menu-heading h3 {
   margin: 0;
   font-size: 1.5rem;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-ui);
+  font-weight: 700;
 }
 
 .service-menu-badge {
@@ -1515,7 +1520,8 @@ body.menu-open .site-header {
   margin: 0;
   font-size: clamp(1.9rem, 3vw, 2.6rem);
   line-height: 1.06;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-ui);
+  font-weight: 700;
 }
 
 .promotion-copy p {
@@ -1640,11 +1646,12 @@ body.menu-open .site-header {
   top: 0;
   right: 0;
   width: min(440px, 100%);
-  height: 100vh;
+  height: 100dvh;
   padding: 22px;
   display: grid;
   grid-template-rows: auto auto 1fr;
   gap: 16px;
+  overflow: hidden;
   background: rgba(255, 249, 242, 0.98);
   border-left: 1px solid rgba(90, 63, 44, 0.1);
   box-shadow: -18px 0 44px rgba(49, 34, 22, 0.18);
@@ -1703,9 +1710,16 @@ body.menu-open .site-header {
   min-height: 0;
 }
 
+.drawer-body {
+  display: grid;
+  overflow: hidden;
+}
+
 .drawer-stage.active,
 .drawer-stage:not([hidden]) {
   display: grid;
+  height: 100%;
+  overflow: hidden;
 }
 
 #cart-stage {
@@ -1718,8 +1732,33 @@ body.menu-open .site-header {
   display: grid;
   align-content: start;
   gap: 12px;
-  overflow: auto;
-  padding-right: 4px;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  padding-right: 8px;
+}
+
+.cart-items::-webkit-scrollbar,
+.checkout-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cart-items::-webkit-scrollbar-track,
+.checkout-scroll::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: rgba(90, 63, 44, 0.06);
+}
+
+.cart-items::-webkit-scrollbar-thumb,
+.checkout-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(90, 63, 44, 0.28);
+}
+
+.cart-items::-webkit-scrollbar-thumb:hover,
+.checkout-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(90, 63, 44, 0.4);
 }
 
 .cart-item,
@@ -1814,9 +1853,10 @@ body.menu-open .site-header {
 
 .checkout-form {
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: minmax(0, 1fr) auto;
   gap: 14px;
   min-height: 0;
+  height: 100%;
 }
 
 .checkout-block {
@@ -1942,6 +1982,11 @@ body.menu-open .site-header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  position: sticky;
+  bottom: 0;
+  padding-top: 12px;
+  background: linear-gradient(180deg, rgba(255, 249, 242, 0), rgba(255, 249, 242, 0.96) 34%);
+  border-top: 1px solid rgba(90, 63, 44, 0.08);
 }
 
 .checkout-actions .primary-btn,
@@ -2006,7 +2051,8 @@ body.menu-open .site-header {
   margin: 0;
   font-size: clamp(2rem, 4vw, 2.6rem);
   line-height: 1.06;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-ui);
+  font-weight: 700;
 }
 
 .auth-heading .note {
@@ -2545,7 +2591,7 @@ body.cart-open .back-to-top {
   }
 
   .cart-drawer {
-    padding: 16px;
+    padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
   }
 
   .auth-modal {
