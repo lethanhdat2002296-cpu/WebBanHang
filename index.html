@@ -3,54 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nha Xinh Mart | Ke, tu, noi chao va do gia dung</title>
+  <title>Nhà Xinh Mart | Kệ, tủ, nồi chảo và đồ gia dụng</title>
   <meta
     name="description"
-    content="Web thuong mai dien tu do gia dung voi bo cuc category page, loc san pham, che do xem luoi danh sach, phan trang va checkout frontend."
+    content="Website thương mại điện tử đồ gia dụng với bố cục trang danh mục, lọc sản phẩm, chế độ xem lưới danh sách, phân trang và thanh toán giao diện."
   >
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="site-shell">
     <div class="notice-bar">
-      <span>Gia dung giam gia moi tuan</span>
-      <span>Mien phi ship tu 699.000d</span>
-      <span>Ho tro doi mau trong 7 ngay</span>
+      <span>Đồ gia dụng giảm giá mỗi tuần</span>
+      <span>Miễn phí ship từ 699.000đ</span>
+      <span>Hỗ trợ đổi mẫu trong 7 ngày</span>
     </div>
 
     <header class="site-header">
-      <a class="brand" href="#home" aria-label="Nha Xinh Mart">
+      <a class="brand" href="#home" aria-label="Nhà Xinh Mart">
         <span class="brand-mark">NX</span>
         <span>
-          <strong>Nha Xinh Mart</strong>
-          <small>Ke, tu, noi chao cho nha dep gon</small>
+          <strong>Nhà Xinh Mart</strong>
+          <small>Kệ, tủ, nồi chảo cho nhà đẹp gọn</small>
         </span>
       </a>
 
-      <nav class="header-nav" aria-label="Dieu huong chinh">
+      <nav class="header-nav" aria-label="Điều hướng chính">
         <button class="nav-trigger" id="category-trigger" type="button" aria-expanded="false" aria-controls="mega-menu">
           <span>☰</span>
-          Danh muc
+          Danh mục
         </button>
         <button class="nav-trigger" id="store-trigger" type="button" aria-expanded="false" aria-controls="store-menu">
           <span>&#8962;</span>
-          Cua hang
+          Cửa hàng
         </button>
         <button class="nav-trigger" id="service-trigger" type="button" aria-expanded="false" aria-controls="service-menu">
           <span>&#10010;</span>
-          Dich vu
+          Dịch vụ
         </button>
-        <a href="#promotions">Chuong trinh khuyen mai</a>
+        <a href="#promotions">Chương trình khuyến mãi</a>
       </nav>
 
       <div class="header-actions">
-        <button class="ghost-btn" type="button">Bargains gia dung</button>
-        <button class="cart-launch" id="cart-launch" type="button" aria-label="Mo gio hang">
-          Gio hang
+        <button class="ghost-btn" type="button">Ưu đãi đồ gia dụng</button>
+        <button class="cart-launch" id="cart-launch" type="button" aria-label="Mở giỏ hàng">
+          Giỏ hàng
           <span class="cart-badge" id="cart-count">0</span>
         </button>
         <button class="auth-launch" id="auth-trigger" type="button" aria-haspopup="dialog" aria-controls="auth-modal">
-          Dang nhap
+          Đăng nhập
         </button>
       </div>
 
@@ -59,10 +59,10 @@
         <div class="mega-menu-content">
           <div class="mega-menu-heading">
             <div>
-              <p class="eyebrow" id="mega-menu-caption">Danh muc nha cua</p>
-              <h3 id="mega-menu-title">Phong Khach</h3>
+              <p class="eyebrow" id="mega-menu-caption">Danh mục nhà cửa</p>
+              <h3 id="mega-menu-title">Phòng Khách</h3>
             </div>
-            <button class="link-btn" id="mega-menu-view-room" type="button">Xem tat ca</button>
+            <button class="link-btn" id="mega-menu-view-room" type="button">Xem tất cả</button>
           </div>
           <div class="mega-menu-columns" id="mega-menu-columns"></div>
         </div>
@@ -73,10 +73,10 @@
         <div class="store-menu-content">
           <div class="store-menu-heading">
             <div>
-              <p class="eyebrow">Thong tin chi nhanh</p>
-              <h3 id="store-menu-title">Ho Chi Minh</h3>
+              <p class="eyebrow">Thông tin chi nhánh</p>
+              <h3 id="store-menu-title">Hồ Chí Minh</h3>
             </div>
-            <span class="store-menu-badge">Mo cua 08:00 - 21:00</span>
+            <span class="store-menu-badge">Mở cửa 08:00 - 21:00</span>
           </div>
           <div class="store-branch-list" id="store-branch-list"></div>
         </div>
@@ -87,10 +87,10 @@
         <div class="service-menu-content">
           <div class="service-menu-heading">
             <div>
-              <p class="eyebrow">Ho tro va thanh vien</p>
-              <h3 id="service-menu-title">Cham soc KH 24/7</h3>
+              <p class="eyebrow">Hỗ trợ và thành viên</p>
+              <h3 id="service-menu-title">Chăm sóc KH 24/7</h3>
             </div>
-            <span class="service-menu-badge">Phan hoi nhanh trong gio lam viec</span>
+            <span class="service-menu-badge">Phản hồi nhanh trong giờ làm việc</span>
           </div>
           <div class="service-card-list" id="service-card-list"></div>
         </div>
@@ -100,60 +100,60 @@
     <main>
       <section class="hero-section" id="home">
         <div class="hero-copy">
-          <p class="eyebrow">Mo phong theo style category page cua shop that</p>
+          <p class="eyebrow">Mô phỏng theo phong cách trang danh mục của cửa hàng thật</p>
           <h1>
-            Mot cua hang do gia dung
-            <span>co ca chat catalogue va chat thuong mai dien tu.</span>
+            Một cửa hàng đồ gia dụng
+            <span>có cả chất danh mục và chất thương mại điện tử.</span>
           </h1>
           <p class="hero-text">
-            Giao dien moi ket hop hai huong: bo cuc danh muc, nut chuyen doi, loc va phan trang nhu mot shop online
-            chuyen nghiep; dong thoi giu lai gio hang, checkout va cac khoi noi bat de phu hop bai demo frontend.
+            Giao diện mới kết hợp hai hướng: bố cục danh mục, nút chuyển đổi, lọc và phân trang như một cửa hàng trực tuyến
+            chuyên nghiệp; đồng thời giữ lại giỏ hàng, thanh toán và các khối nổi bật để phù hợp bản mô phỏng giao diện.
           </p>
 
           <div class="hero-actions">
-            <a class="primary-btn" href="#catalogue">Xem cua hang</a>
-            <button class="secondary-btn" id="bundle-cta" type="button">Xem san pham bep</button>
+            <a class="primary-btn" href="#catalogue">Xem cửa hàng</a>
+            <button class="secondary-btn" id="bundle-cta" type="button">Xem sản phẩm bếp</button>
           </div>
 
           <div class="hero-stats">
             <article>
               <strong>80+</strong>
-              <span>San pham gia dung</span>
+              <span>Sản phẩm gia dụng</span>
             </article>
             <article>
               <strong>6</strong>
-              <span>Nhom nganh hang</span>
+              <span>Nhóm ngành hàng</span>
             </article>
             <article>
-              <strong>Grid/List</strong>
-              <span>Chuyen doi nhin nhanh</span>
+              <strong>Lưới/Danh sách</strong>
+              <span>Chuyển đổi nhìn nhanh</span>
             </article>
           </div>
         </div>
 
         <div class="hero-board">
           <article class="board-card feature">
-            <span class="mini-label">Goc nha hot</span>
-            <h2>Setup nha moi tu bep den phong khach</h2>
-            <p>Tu ke, tu mini, noi chao, hop luu tru den xe day don dep deu co the them gio ngay.</p>
+            <span class="mini-label">Góc nhà hot</span>
+            <h2>Trang bị nhà mới từ bếp đến phòng khách</h2>
+            <p>Từ kệ, tủ mini, nồi chảo, hộp lưu trữ đến xe đẩy dọn dẹp đều có thể thêm giỏ ngay.</p>
             <div class="price-line">
-              <strong>Tu 129.000d</strong>
-              <span>Cap nhat deal moi moi ngay</span>
+              <strong>Từ 129.000đ</strong>
+              <span>Cập nhật ưu đãi mới mỗi ngày</span>
             </div>
           </article>
 
           <div class="board-mini-grid">
             <article class="board-mini warm">
-              <span>Ke & Tu</span>
-              <strong>Toi uu luu tru</strong>
+              <span>Kệ & Tủ</span>
+              <strong>Tối ưu lưu trữ</strong>
             </article>
             <article class="board-mini">
-              <span>Noi & Chao</span>
-              <strong>Can bep gon gon</strong>
+              <span>Nồi & Chảo</span>
+              <strong>Căn bếp gọn gàng</strong>
             </article>
             <article class="board-mini dark">
-              <span>Nut chuyen doi</span>
-              <strong>Loc, view, page deu co</strong>
+              <span>Nút chuyển đổi</span>
+              <strong>Lọc, chuyển kiểu xem, phân trang đều có</strong>
             </article>
           </div>
         </div>
@@ -162,43 +162,43 @@
       <section class="department-section" id="collections">
         <div class="section-heading split">
           <div>
-            <p class="eyebrow">Danh muc chinh</p>
-            <h2>Toan bo web da chuyen sang do gia dung</h2>
+            <p class="eyebrow">Danh mục chính</p>
+            <h2>Toàn bộ web đã chuyển sang đồ gia dụng</h2>
           </div>
-          <span class="stock-chip">Ke, tu, noi, hop, may ve sinh</span>
+          <span class="stock-chip">Kệ, tủ, nồi, hộp, máy vệ sinh</span>
         </div>
 
         <div class="department-grid">
           <article class="department-card shelf">
             <div>
-              <p>Ke & Gia de</p>
-              <h3>Ke bep, ke sach, ke da nang giup nha cua gon hon tung goc.</h3>
+              <p>Kệ & Giá để</p>
+              <h3>Kệ bếp, kệ sách, kệ đa năng giúp nhà cửa gọn hơn từng góc.</h3>
             </div>
-            <button class="pill-btn" type="button" data-filter-target="Ke & Gia">Xem ke</button>
+            <button class="pill-btn" type="button" data-filter-target="Kệ & Giá">Xem kệ</button>
           </article>
 
           <article class="department-card cabinet">
             <div>
-              <p>Tu & Luu tru</p>
-              <h3>Tu vai, tu mini, tu giay va cac mon luu tru cho can ho nho.</h3>
+              <p>Tủ & Lưu trữ</p>
+              <h3>Tủ vải, tủ mini, tủ giày và các món lưu trữ cho căn hộ nhỏ.</h3>
             </div>
-            <button class="pill-btn" type="button" data-filter-target="Tu & Luu tru">Xem tu</button>
+            <button class="pill-btn" type="button" data-filter-target="Tủ & Lưu trữ">Xem tủ</button>
           </article>
 
           <article class="department-card cookware">
             <div>
-              <p>Noi & Chao</p>
-              <h3>Noi inox, bo noi da, chao sau long cho gian bep dung chat gia dinh.</h3>
+              <p>Nồi & Chảo</p>
+              <h3>Nồi inox, bộ nồi đá, chảo sâu lòng cho gian bếp đúng chất gia đình.</h3>
             </div>
-            <button class="pill-btn" type="button" data-filter-target="Noi & Chao">Xem ngay</button>
+            <button class="pill-btn" type="button" data-filter-target="Nồi & Chảo">Xem ngay</button>
           </article>
 
           <article class="department-card utility">
             <div>
-              <p>Ve sinh & Phu tro</p>
-              <h3>Cay lau, xe day, gia treo nha tam va nhung mon khien nha sach hon moi ngay.</h3>
+              <p>Vệ sinh & Phụ trợ</p>
+              <h3>Cây lau, xe đẩy, giá treo nhà tắm và những món khiến nhà sạch hơn mỗi ngày.</h3>
             </div>
-            <button class="pill-btn" type="button" data-filter-target="Ve sinh & Phu tro">Loc nhanh</button>
+            <button class="pill-btn" type="button" data-filter-target="Vệ sinh & Phụ trợ">Lọc nhanh</button>
           </article>
         </div>
       </section>
@@ -207,36 +207,36 @@
         <div class="catalog-main">
           <div class="section-heading split">
             <div>
-              <p class="eyebrow">Cua hang do gia dung</p>
-              <h2>Ke, tu, noi, chao va phu kien cho moi goc nha</h2>
+              <p class="eyebrow">Cửa hàng đồ gia dụng</p>
+              <h2>Kệ, tủ, nồi, chảo và phụ kiện cho mọi góc nhà</h2>
             </div>
-            <span class="stock-chip" id="result-count">0 san pham</span>
+            <span class="stock-chip" id="result-count">0 sản phẩm</span>
           </div>
 
           <div class="catalog-toolbar">
             <label class="search-field" for="search-input">
-              <span>Tim san pham</span>
-              <input id="search-input" type="search" placeholder="Tim ke da nang, tu mini, noi inox...">
+              <span>Tìm sản phẩm</span>
+              <input id="search-input" type="search" placeholder="Tìm kệ đa năng, tủ mini, nồi inox...">
             </label>
 
             <label class="sort-field" for="sort-select">
-              <span>Sap xep</span>
+              <span>Sắp xếp</span>
               <select id="sort-select">
-                <option value="featured">Noi bat</option>
-                <option value="price-asc">Gia tang dan</option>
-                <option value="price-desc">Gia giam dan</option>
-                <option value="rating">Danh gia cao nhat</option>
+                <option value="featured">Nổi bật</option>
+                <option value="price-asc">Giá tăng dần</option>
+                <option value="price-desc">Giá giảm dần</option>
+                <option value="rating">Đánh giá cao nhất</option>
               </select>
             </label>
 
-            <div class="view-switch" role="tablist" aria-label="Chuyen doi che do xem">
-              <button class="view-btn active" type="button" data-view="grid">Luoi</button>
-              <button class="view-btn" type="button" data-view="list">Danh sach</button>
+            <div class="view-switch" role="tablist" aria-label="Chuyển đổi chế độ xem">
+              <button class="view-btn active" type="button" data-view="grid">Lưới</button>
+              <button class="view-btn" type="button" data-view="list">Danh sách</button>
             </div>
           </div>
 
-          <div class="room-pill-row" id="room-filters" aria-label="Loc theo khong gian"></div>
-          <div class="room-group-row" id="room-group-filters" aria-label="Loc theo nhom con" hidden></div>
+          <div class="room-pill-row" id="room-filters" aria-label="Lọc theo không gian"></div>
+          <div class="room-group-row" id="room-group-filters" aria-label="Lọc theo nhóm con" hidden></div>
 
           <div class="product-grid" id="product-grid"></div>
           <div class="pagination" id="pagination"></div>
@@ -246,23 +246,23 @@
       <section class="spotlight-section" id="service">
         <div class="section-heading split">
           <div>
-            <p class="eyebrow">Khoi noi bat</p>
-            <h2>Khong chi dep ma con co du thao tac de demo</h2>
+            <p class="eyebrow">Khối nổi bật</p>
+            <h2>Không chỉ đẹp mà còn có đủ thao tác để trải nghiệm</h2>
           </div>
         </div>
 
         <div class="spotlight-grid">
           <article class="spotlight-card">
-            <h3>Chuyen view nhanh</h3>
-            <p>Tu luoi sang danh sach chi bang mot nut bam, giup web mang chat cua mot category page that su.</p>
+            <h3>Chuyển kiểu xem nhanh</h3>
+            <p>Từ lưới sang danh sách chỉ bằng một nút bấm, giúp web mang chất của một trang danh mục thật sự.</p>
           </article>
           <article class="spotlight-card">
-            <h3>Phan trang ro rang</h3>
-            <p>Khi nhieu san pham hon, nguoi dung co the bam qua lai giua cac trang thay vi do tat ca mot luc.</p>
+            <h3>Phân trang rõ ràng</h3>
+            <p>Khi nhiều sản phẩm hơn, người dùng có thể bấm qua lại giữa các trang thay vì đổ tất cả một lúc.</p>
           </article>
           <article class="spotlight-card">
-            <h3>Checkout mo phong day du</h3>
-            <p>Gom thong tin giao hang va chon phuong thuc thanh toan COD, the ngan hang hoac Visa.</p>
+            <h3>Thanh toán mô phỏng đầy đủ</h3>
+            <p>Gồm thông tin giao hàng và chọn phương thức thanh toán tiền mặt, thẻ ngân hàng hoặc Visa.</p>
           </article>
         </div>
       </section>
@@ -270,34 +270,34 @@
       <section class="stories promotion-programs" id="promotions">
         <div class="section-heading split promotion-heading">
           <div>
-            <p class="eyebrow">Chuong trinh khuyen mai</p>
-            <h2>Uu dai luan phien cho thanh vien moi va don hang gia tri cao</h2>
+            <p class="eyebrow">Chương trình khuyến mãi</p>
+            <h2>Ưu đãi luân phiên cho thành viên mới và đơn hàng giá trị cao</h2>
           </div>
         </div>
 
         <div class="promotion-carousel" id="promotion-carousel">
-          <div class="promotion-controls" aria-label="Dieu huong khuyen mai">
-            <button class="icon-btn" id="promotion-prev" type="button" aria-label="Xem uu dai truoc">&#8592;</button>
-            <button class="icon-btn" id="promotion-next" type="button" aria-label="Xem uu dai tiep theo">&#8594;</button>
+            <div class="promotion-controls" aria-label="Điều hướng khuyến mãi">
+            <button class="icon-btn" id="promotion-prev" type="button" aria-label="Xem ưu đãi trước">&#8592;</button>
+            <button class="icon-btn" id="promotion-next" type="button" aria-label="Xem ưu đãi tiếp theo">&#8594;</button>
           </div>
           <div class="promotion-track" id="promotion-track"></div>
         </div>
 
         <div class="promotion-footer">
-          <div class="promotion-dots" id="promotion-dots" aria-label="Danh sach khuyen mai"></div>
-          <p class="note promotion-status" id="promotion-status">Dang tai khuyen mai</p>
+          <div class="promotion-dots" id="promotion-dots" aria-label="Danh sách khuyến mãi"></div>
+          <p class="note promotion-status" id="promotion-status">Đang tải khuyến mãi</p>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div>
-        <strong>Nha Xinh Mart</strong>
-        <p>Do gia dung cho bep, phong khach, phong ngu va nha tam duoc trinh bay theo style catalogue hien dai.</p>
+        <strong>Nhà Xinh Mart</strong>
+        <p>Đồ gia dụng cho bếp, phòng khách, phòng ngủ và nhà tắm được trình bày theo phong cách danh mục hiện đại.</p>
       </div>
       <div class="footer-links">
-        <a href="#catalogue">Cua hang</a>
-        <a href="#promotions">Khuyen mai</a>
+        <a href="#catalogue">Cửa hàng</a>
+        <a href="#promotions">Khuyến mãi</a>
       </div>
     </footer>
   </div>
@@ -305,15 +305,15 @@
   <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
     <div class="cart-header">
       <div>
-        <p class="eyebrow">Gio hang do gia dung</p>
-        <h2>San pham da chon</h2>
+        <p class="eyebrow">Giỏ hàng đồ gia dụng</p>
+        <h2>Sản phẩm đã chọn</h2>
       </div>
-      <button class="icon-btn" id="close-cart" type="button" aria-label="Dong gio hang">x</button>
+      <button class="icon-btn" id="close-cart" type="button" aria-label="Đóng giỏ hàng">x</button>
     </div>
 
     <div class="cart-progress" id="cart-progress">
-      <button class="step-chip active" type="button" data-stage-switch="cart">1. Gio hang</button>
-      <button class="step-chip" type="button" data-stage-switch="checkout">2. Thanh toan</button>
+      <button class="step-chip active" type="button" data-stage-switch="cart">1. Giỏ hàng</button>
+      <button class="step-chip" type="button" data-stage-switch="checkout">2. Thanh toán</button>
     </div>
 
     <div class="drawer-body">
@@ -322,19 +322,19 @@
 
         <div class="cart-summary">
           <div class="summary-line">
-            <span>Tam tinh</span>
-            <strong id="subtotal">0d</strong>
+            <span>Tạm tính</span>
+            <strong id="subtotal">0đ</strong>
           </div>
           <div class="summary-line">
-            <span>Phi giao hang</span>
-            <strong id="shipping">0d</strong>
+            <span>Phí giao hàng</span>
+            <strong id="shipping">0đ</strong>
           </div>
           <div class="summary-line total">
-            <span>Tong cong</span>
-            <strong id="total">0d</strong>
+            <span>Tổng cộng</span>
+            <strong id="total">0đ</strong>
           </div>
-          <button class="primary-btn full" id="checkout-btn" type="button">Sang buoc thanh toan</button>
-          <p class="note">Flow checkout nay la mo phong frontend, phu hop de trinh bay giao dien va thao tac.</p>
+          <button class="primary-btn full" id="checkout-btn" type="button">Sang bước thanh toán</button>
+          <p class="note">Luồng thanh toán này là mô phỏng giao diện, phù hợp để trình bày thao tác và trải nghiệm người dùng.</p>
         </div>
       </section>
 
@@ -344,30 +344,30 @@
             <section class="checkout-block">
               <div class="checkout-heading">
                 <div>
-                  <p class="eyebrow">Thong tin giao hang</p>
-                  <h3>Nhap nguoi nhan va dia chi</h3>
+                  <p class="eyebrow">Thông tin giao hàng</p>
+                  <h3>Nhập người nhận và địa chỉ</h3>
                 </div>
               </div>
 
               <div class="field-grid">
                 <label class="form-field">
-                  <span>Ho ten nguoi nhan</span>
-                  <input id="customer-name" name="customerName" type="text" placeholder="Nguyen Van A" autocomplete="name">
+                  <span>Họ tên người nhận</span>
+                  <input id="customer-name" name="customerName" type="text" placeholder="Nguyễn Văn A" autocomplete="name">
                 </label>
 
                 <label class="form-field">
-                  <span>So dien thoai</span>
+                  <span>Số điện thoại</span>
                   <input id="customer-phone" name="customerPhone" type="tel" placeholder="09xxxxxxxx" inputmode="tel" autocomplete="tel">
                 </label>
 
                 <label class="form-field full-row">
-                  <span>Dia chi giao hang</span>
-                  <textarea id="customer-address" name="customerAddress" rows="3" placeholder="So nha, duong, phuong xa, quan huyen, tinh thanh"></textarea>
+                  <span>Địa chỉ giao hàng</span>
+                  <textarea id="customer-address" name="customerAddress" rows="3" placeholder="Số nhà, đường, phường xã, quận huyện, tỉnh thành"></textarea>
                 </label>
 
                 <label class="form-field full-row">
-                  <span>Ghi chu giao hang</span>
-                  <textarea id="customer-note" name="customerNote" rows="2" placeholder="Vi du: Giao gio hanh chinh, goi truoc khi den"></textarea>
+                  <span>Ghi chú giao hàng</span>
+                  <textarea id="customer-note" name="customerNote" rows="2" placeholder="Ví dụ: Giao giờ hành chính, gọi trước khi đến"></textarea>
                 </label>
               </div>
             </section>
@@ -375,25 +375,25 @@
             <section class="checkout-block">
               <div class="checkout-heading">
                 <div>
-                  <p class="eyebrow">Phuong thuc thanh toan</p>
-                  <h3>Chon cach thanh toan phu hop</h3>
+                  <p class="eyebrow">Phương thức thanh toán</p>
+                  <h3>Chọn cách thanh toán phù hợp</h3>
                 </div>
               </div>
 
               <div class="payment-options">
                 <button class="payment-option active" type="button" data-payment-method="cod">
-                  <span class="payment-title">Tien mat khi nhan hang</span>
-                  <small>Thanh toan cho nhan vien giao hang sau khi nhan du san pham.</small>
+                  <span class="payment-title">Tiền mặt khi nhận hàng</span>
+                  <small>Thanh toán cho nhân viên giao hàng sau khi nhận đủ sản phẩm.</small>
                 </button>
 
                 <button class="payment-option" type="button" data-payment-method="bank-card">
-                  <span class="payment-title">The ngan hang</span>
-                  <small>BIDV, VCB, OCB va cac ngan hang noi dia khac.</small>
+                  <span class="payment-title">Thẻ ngân hàng</span>
+                  <small>BIDV, VCB, OCB và các ngân hàng nội địa khác.</small>
                 </button>
 
                 <button class="payment-option" type="button" data-payment-method="visa">
-                  <span class="payment-title">The Visa</span>
-                  <small>Ngan hang va cong ty tai chinh nhu HomeCredit, SaigonHD...</small>
+                  <span class="payment-title">Thẻ Visa</span>
+                  <small>Ngân hàng và công ty tài chính như HomeCredit, SaigonHD...</small>
                 </button>
               </div>
 
@@ -403,8 +403,8 @@
             <section class="checkout-block">
               <div class="checkout-heading">
                 <div>
-                  <p class="eyebrow">Tom tat don hang</p>
-                  <h3>Kiem tra nhanh truoc khi xac nhan</h3>
+                  <p class="eyebrow">Tóm tắt đơn hàng</p>
+                  <h3>Kiểm tra nhanh trước khi xác nhận</h3>
                 </div>
               </div>
 
@@ -412,24 +412,24 @@
 
               <div class="cart-summary checkout-summary">
                 <div class="summary-line">
-                  <span>Tam tinh</span>
-                  <strong id="checkout-subtotal">0d</strong>
+                  <span>Tạm tính</span>
+                  <strong id="checkout-subtotal">0đ</strong>
                 </div>
                 <div class="summary-line">
-                  <span>Phi giao hang</span>
-                  <strong id="checkout-shipping">0d</strong>
+                  <span>Phí giao hàng</span>
+                  <strong id="checkout-shipping">0đ</strong>
                 </div>
                 <div class="summary-line total">
-                  <span>Tong cong</span>
-                  <strong id="checkout-total">0d</strong>
+                  <span>Tổng cộng</span>
+                  <strong id="checkout-total">0đ</strong>
                 </div>
               </div>
             </section>
           </div>
 
           <div class="checkout-actions">
-            <button class="secondary-btn" id="back-to-cart" type="button">Quay lai gio hang</button>
-            <button class="primary-btn" id="confirm-order" type="submit">Xac nhan dat hang</button>
+            <button class="secondary-btn" id="back-to-cart" type="button">Quay lại giỏ hàng</button>
+            <button class="primary-btn" id="confirm-order" type="submit">Xác nhận đặt hàng</button>
           </div>
         </form>
       </section>
@@ -438,45 +438,45 @@
 
   <section class="auth-modal" id="auth-modal" aria-hidden="true">
     <div class="auth-dialog">
-      <button class="icon-btn auth-close" id="auth-close" type="button" aria-label="Dong hop thoai">x</button>
+      <button class="icon-btn auth-close" id="auth-close" type="button" aria-label="Đóng hộp thoại">x</button>
 
       <section class="auth-panel" id="auth-login-view">
         <div class="auth-heading">
-          <p class="eyebrow">Dang nhap thanh vien</p>
-          <h2>Dang nhap de luu gio hang va nhan khuyen mai</h2>
-          <p class="note">Frontend mo phong: popup nay uu tien dang nhap nhanh, con dang ky thanh vien duoc mo rieng tu menu Dich vu.</p>
+          <p class="eyebrow">Đăng nhập thành viên</p>
+          <h2>Đăng nhập để lưu giỏ hàng và nhận khuyến mãi</h2>
+          <p class="note">Bản mô phỏng giao diện: hộp thoại này ưu tiên đăng nhập nhanh, còn đăng ký thành viên được mở riêng từ menu Dịch vụ.</p>
         </div>
 
         <form class="auth-form" id="auth-login-form" novalidate>
           <div class="field-grid auth-grid">
             <label class="form-field full-row">
-              <span>User</span>
-              <input name="loginUser" type="text" placeholder="Nhap user hoac email" autocomplete="username">
+                <span>Tài khoản</span>
+                <input name="loginUser" type="text" placeholder="Nhập tài khoản hoặc email" autocomplete="username">
             </label>
 
             <label class="form-field full-row">
-              <span>Pass</span>
-              <input name="loginPass" type="password" placeholder="Nhap mat khau" autocomplete="current-password">
+                <span>Mật khẩu</span>
+                <input name="loginPass" type="password" placeholder="Nhập mật khẩu" autocomplete="current-password">
             </label>
           </div>
 
-          <button class="primary-btn full" type="submit">Dang nhap</button>
+          <button class="primary-btn full" type="submit">Đăng nhập</button>
         </form>
 
         <div class="auth-tools">
           <button class="link-btn auth-toggle-link" id="auth-social-toggle" type="button" aria-expanded="false" aria-controls="auth-socials">
-            Phuong thuc dang nhap khac
+            Phương thức đăng nhập khác
           </button>
         </div>
 
         <div class="auth-socials" id="auth-socials" hidden>
-          <button class="auth-social-btn auth-social-btn--google" type="button" data-social-login="Google" aria-label="Dang nhap bang Google" title="Google">
+          <button class="auth-social-btn auth-social-btn--google" type="button" data-social-login="Google" aria-label="Đăng nhập bằng Google" title="Google">
             <span class="auth-social-mark" aria-hidden="true">G</span>
           </button>
-          <button class="auth-social-btn auth-social-btn--facebook" type="button" data-social-login="Facebook" aria-label="Dang nhap bang Facebook" title="Facebook">
+          <button class="auth-social-btn auth-social-btn--facebook" type="button" data-social-login="Facebook" aria-label="Đăng nhập bằng Facebook" title="Facebook">
             <span class="auth-social-mark" aria-hidden="true">f</span>
           </button>
-          <button class="auth-social-btn auth-social-btn--zalo" type="button" data-social-login="Zalo" aria-label="Dang nhap bang Zalo" title="Zalo">
+          <button class="auth-social-btn auth-social-btn--zalo" type="button" data-social-login="Zalo" aria-label="Đăng nhập bằng Zalo" title="Zalo">
             <span class="auth-social-mark" aria-hidden="true">Z</span>
           </button>
         </div>
@@ -484,25 +484,25 @@
 
       <section class="auth-panel" id="auth-register-view" hidden>
         <div class="auth-heading">
-          <p class="eyebrow">Dang ky thanh vien</p>
-          <h2>Tao tai khoan moi de nhan uu dai va tich diem</h2>
-          <p class="note">Nhap day du thong tin de mo phong quy trinh dang ky thanh vien va xac thuc OTP.</p>
+          <p class="eyebrow">Đăng ký thành viên</p>
+          <h2>Tạo tài khoản mới để nhận ưu đãi và tích điểm</h2>
+          <p class="note">Nhập đầy đủ thông tin để mô phỏng quy trình đăng ký thành viên và xác thực OTP.</p>
         </div>
 
         <form class="auth-form" id="auth-register-form" novalidate>
           <div class="field-grid auth-grid">
             <label class="form-field">
-              <span>Ho</span>
-              <input name="registerLastName" type="text" placeholder="Nguyen" autocomplete="family-name">
+              <span>Họ</span>
+              <input name="registerLastName" type="text" placeholder="Nguyễn" autocomplete="family-name">
             </label>
 
             <label class="form-field">
-              <span>Ten</span>
+              <span>Tên</span>
               <input name="registerFirstName" type="text" placeholder="An" autocomplete="given-name">
             </label>
 
             <label class="form-field">
-              <span>So dien thoai</span>
+              <span>Số điện thoại</span>
               <input name="registerPhone" type="tel" placeholder="09xxxxxxxx" inputmode="tel" autocomplete="tel">
             </label>
 
@@ -512,24 +512,24 @@
             </label>
 
             <label class="form-field">
-              <span>User</span>
-              <input name="registerUser" type="text" placeholder="taikhoanmoing" autocomplete="username">
+              <span>Tài khoản</span>
+              <input name="registerUser" type="text" placeholder="taikhoanmoi" autocomplete="username">
             </label>
 
             <label class="form-field">
-              <span>Pass</span>
-              <input name="registerPass" type="password" placeholder="Tao mat khau" autocomplete="new-password">
+              <span>Mật khẩu</span>
+              <input name="registerPass" type="password" placeholder="Tạo mật khẩu" autocomplete="new-password">
             </label>
 
             <label class="form-field full-row">
-              <span>Ma xac nhan OTP</span>
-              <input name="registerOtp" type="text" placeholder="Nhap ma OTP" inputmode="numeric" autocomplete="one-time-code">
+              <span>Mã xác nhận OTP</span>
+              <input name="registerOtp" type="text" placeholder="Nhập mã OTP" inputmode="numeric" autocomplete="one-time-code">
             </label>
           </div>
 
           <div class="auth-actions">
-            <button class="secondary-btn" type="button" data-auth-view="login">Quay lai dang nhap</button>
-            <button class="primary-btn" type="submit">Dang ky thanh vien</button>
+            <button class="secondary-btn" type="button" data-auth-view="login">Quay lại đăng nhập</button>
+            <button class="primary-btn" type="submit">Đăng ký thành viên</button>
           </div>
         </form>
       </section>
@@ -538,7 +538,7 @@
 
   <div class="overlay" id="overlay" hidden></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <button class="back-to-top" id="back-to-top" type="button" aria-label="Len dau trang">
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Lên đầu trang">
     ↑
   </button>
 
