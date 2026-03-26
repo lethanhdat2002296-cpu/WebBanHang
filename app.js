@@ -1,24 +1,25 @@
 const products = [
-  { id: "ke-gia-vi-3-tang", name: "Ke gia vi 3 tang khung thep", category: "Ke & Gia", room: "Nhà Bếp", price: 289000, originalPrice: 355000, rating: 4.8, stock: 12, featuredRank: 1, badge: "Ban chay", description: "Ke gia vi nho gon giup sap xep chai lo va dung cu nau an theo chieu doc gon mat.", tags: ["3 tang", "Thep son", "Lap nhanh", "Ke tu gia vi"], glyph: "KE3", color: "#d7c29f" },
-  { id: "tu-vai-2-canh", name: "Tu vai 2 canh khung kim loai", category: "Tu & Luu tru", room: "Phòng Ngủ", price: 599000, originalPrice: 720000, rating: 4.7, stock: 8, featuredRank: 2, badge: "Moi ve", description: "Mau be trung tinh, co ngan treo va ke gap phu hop phong tro hoac can ho mini.", tags: ["2 canh", "Khung sat", "Phong ngu"], glyph: "TU2", color: "#c9baa7" },
-  { id: "bo-noi-inox-5-day", name: "Bo noi inox 5 day 3 mon", category: "Noi & Chao", room: "Nhà Bếp", price: 849000, originalPrice: 1020000, rating: 4.9, stock: 10, featuredRank: 3, badge: "Noi bat", description: "Bo noi inox day dan, dung duoc tren bep tu va bep gas, phu hop gia dinh tre.", tags: ["Inox 5 day", "3 mon", "Bep tu", "Dung cu lam bep"], glyph: "NOI", color: "#d5d8dc" },
-  { id: "chao-sau-long-da", name: "Chao sau long phu da 28cm", category: "Noi & Chao", room: "Nhà Bếp", price: 379000, originalPrice: 449000, rating: 4.8, stock: 15, featuredRank: 4, badge: "Gia tot", description: "Long chao sau, de xao nau, lop phu da han che bam dinh va de ve sinh sau bua an.", tags: ["28cm", "Phu da", "Can go", "Bep ga"], glyph: "CHA", color: "#cdb6a2" },
-  { id: "ke-sach-go-mini", name: "Ke sach go mini 4 tang", category: "Ke & Gia", room: "Phòng Khách", price: 729000, originalPrice: 860000, rating: 4.7, stock: 6, featuredRank: 5, badge: "Phong cach", description: "Ke sach da nang co the dung lam ke decor, ke cay nho hoac de hop luu tru.", tags: ["4 tang", "Go cong nghiep", "Ke trang tri", "Tranh"], glyph: "SHE", color: "#d9bf96" },
-  { id: "tu-giay-3-tang", name: "Tu giay 3 tang cua lat", category: "Tu & Luu tru", room: "Phòng Khách", price: 459000, originalPrice: 559000, rating: 4.6, stock: 11, featuredRank: 6, badge: "Gon nha", description: "Mau go dam, de ngay cua ra vao, giu giay dep gon gang va it bam bui hon.", tags: ["3 tang", "Cua lat", "Ke tivi", "Phong khach"], glyph: "TUG", color: "#bea590" },
-  { id: "gia-treo-nha-tam", name: "Gia treo nha tam hut chan khong", category: "Ve sinh & Phu tro", room: "Nhà Vệ Sinh", price: 169000, originalPrice: 219000, rating: 4.7, stock: 17, featuredRank: 7, badge: "Tien loi", description: "De sua tam, dau goi va khan tam ma khong can khoan tuong, phu hop nha thue.", tags: ["Hut chan khong", "Chong ri", "Nha tam", "Dung cu ve sinh ca nhan"], glyph: "TRE", color: "#c9d8e8" },
-  { id: "xe-day-don-dep", name: "Xe day don dep 3 ngan", category: "Ve sinh & Phu tro", room: "Nhà Kho", price: 649000, originalPrice: 790000, rating: 4.8, stock: 5, featuredRank: 8, badge: "Da nang", description: "De xep nuoc lau, khan, binh xit va phu kien don dep theo tung ngan rieng biet.", tags: ["3 ngan", "Co banh xe", "Don dep", "Nha kho"], glyph: "XED", color: "#d1c4df" },
-  { id: "ke-lo-vi-song", name: "Ke de lo vi song 2 tang", category: "Ke & Gia", room: "Nhà Bếp", price: 399000, originalPrice: 475000, rating: 4.6, stock: 13, featuredRank: 9, badge: "Tiet kiem dien tich", description: "Tang duoi de lo vi song, tang tren de bat dia va gia vi giup ban bep gon hon.", tags: ["2 tang", "Bep", "Chiu luc", "Bon rua rau cu"], glyph: "KLV", color: "#d9ccb6" },
-  { id: "tu-dau-giuong-mini", name: "Tu dau giuong mini 2 ngan", category: "Tu & Luu tru", room: "Phòng Ngủ", price: 519000, originalPrice: 620000, rating: 4.7, stock: 9, featuredRank: 10, badge: "Toi gian", description: "Kich thuoc vua canh giuong 1m6, de den ngu, sach va cac vat dung ca nhan nho gon.", tags: ["2 ngan", "Phong ngu", "Go MDF", "Den ngu"], glyph: "TDN", color: "#d8c6b7" },
-  { id: "may-hut-bui-cam-tay", name: "May hut bui cam tay mini", category: "Dien gia dung", room: "Phòng Khách", price: 789000, originalPrice: 930000, rating: 4.8, stock: 7, featuredRank: 11, badge: "Cao cap", description: "Luc hut on dinh, phu hop ghe sofa, rem cua, ke sach va nhung vi tri kho tiep can.", tags: ["Khong day", "Sac USB-C", "3 dau hut", "Sofa"], glyph: "VAC", color: "#cdd6e7" },
-  { id: "hop-luu-tru-trong-suot", name: "Hop luu tru trong suot 6 mon", category: "Tu & Luu tru", room: "Nhà Bếp", price: 249000, originalPrice: 315000, rating: 4.9, stock: 20, featuredRank: 12, badge: "Yeu thich", description: "Dung gao, nui, gia vi kho hoac thuc pham kho, giu can bep sach va de quan sat.", tags: ["6 mon", "Trong suot", "Nap kin", "Tu lanh"], glyph: "BOX", color: "#dce5d4" },
-  { id: "ban-an-gap-gon-mini", name: "Ban an gap gon mini 4 cho", category: "Ban an & Phong khach", room: "Nhà Bếp", price: 1290000, originalPrice: 1490000, rating: 4.6, stock: 4, featuredRank: 13, badge: "Can ho nho", description: "Ban an gap gon co the sat tuong khi khong su dung, giup toi uu khong gian song.", tags: ["Gap gon", "4 cho", "Can ho mini", "Ban an"], glyph: "BAN", color: "#dcc4a5" },
-  { id: "binh-giu-nhiet-gia-dinh", name: "Binh giu nhiet gia dinh 1.5L", category: "Ban an & Phong khach", room: "Nhà Bếp", price: 329000, originalPrice: 399000, rating: 4.8, stock: 14, featuredRank: 14, badge: "Ban chay", description: "Dung tren ban an, giu nong lau, tay cam chac va vo ngoai trung tinh de phoi noi that.", tags: ["1.5L", "Inox 304", "Ban an"], glyph: "BNH", color: "#e2d2ad" },
-  { id: "sofa-bang-mini", name: "Sofa bang mini 3 cho boc ni", category: "Ban an & Phong khach", room: "Phòng Khách", price: 3590000, originalPrice: 4190000, rating: 4.7, stock: 3, featuredRank: 15, badge: "Phong khach", description: "Kich thuoc hop can ho 2 phong, mau kem de phoi voi tranh va den chum.", tags: ["Sofa", "Phong khach", "Den chum"], glyph: "SOF", color: "#d9c9c0" },
-  { id: "voi-sen-tang-ap", name: "Voi sen tang ap 3 che do", category: "Ve sinh & Phu tro", room: "Nhà Vệ Sinh", price: 259000, originalPrice: 319000, rating: 4.8, stock: 16, featuredRank: 16, badge: "De lap", description: "Tang ap luc nuoc, de thao lap, phu hop can ho va nha pho.", tags: ["Voi sen", "Bon rua mat", "Nha ve sinh"], glyph: "SEN", color: "#d4e1ef" },
-  { id: "choi-quet-san-ban-lon", name: "Choi quet san ban lon", category: "Ve sinh & Phu tro", room: "Nhà Kho", price: 139000, originalPrice: 179000, rating: 4.6, stock: 18, featuredRank: 17, badge: "Nha kho", description: "Can dai, long choi ben, hop de quet nha kho, san thuong va loi di rong.", tags: ["Choi quet nha", "Quet san", "Nha kho"], glyph: "CHO", color: "#d8d3c7" },
-  { id: "voi-tuoi-cay-cuon", name: "Voi tuoi cay cuon 15m", category: "Ve sinh & Phu tro", room: "Sân Vườn", price: 469000, originalPrice: 545000, rating: 4.7, stock: 9, featuredRank: 18, badge: "San vuon", description: "Day tuoi mem, cuon gon, co dau phun nhieu che do de cham cay va rua san.", tags: ["Voi tuoi cay", "San vuon", "Tuoi cay"], glyph: "VOI", color: "#cadfb8" },
-  { id: "ghe-gap-san-vuon", name: "Ghe gap san vuon khung sat", category: "Ban an & Phong khach", room: "Sân Vườn", price: 389000, originalPrice: 459000, rating: 4.5, stock: 7, featuredRank: 19, badge: "Ngoai troi", description: "Ghe gap de xep gon sau khi su dung, phu hop san vuon nho va ban cong.", tags: ["Ghe san vuon", "Ngoai troi", "Gap gon"], glyph: "GHE", color: "#c3d3b6" }
+  { id: "ke-gia-vi-3-tang", name: "Kệ gia vị 3 tầng khung thép", category: "Kệ & Giá", room: "Nhà Bếp", price: 289000, originalPrice: 355000, rating: 4.8, stock: 12, featuredRank: 1, badge: "Bán chạy", description: "Kệ gia vị nhỏ gọn giúp sắp xếp chai lọ và dụng cụ nấu ăn theo chiều dọc gọn mắt.", tags: ["3 tầng", "Thép sơn", "Lắp nhanh", "Kệ tủ gia vị"], glyph: "KE3", color: "#d7c29f" },
+  { id: "tu-vai-2-canh", name: "Tủ vải 2 cánh khung kim loại", category: "Tủ & Lưu trữ", room: "Phòng Ngủ", price: 599000, originalPrice: 720000, rating: 4.7, stock: 8, featuredRank: 2, badge: "Mới về", description: "Màu be trung tính, có ngăn treo và kệ gấp phù hợp phòng trọ hoặc căn hộ mini.", tags: ["2 cánh", "Khung sắt", "Phòng ngủ"], glyph: "TU2", color: "#c9baa7" },
+  { id: "bo-noi-inox-5-day", name: "Bộ nồi inox 5 đáy 3 món", category: "Nồi & Chảo", room: "Nhà Bếp", price: 849000, originalPrice: 1020000, rating: 4.9, stock: 10, featuredRank: 3, badge: "Nổi bật", description: "Bộ nồi inox đáy dày, dùng được trên bếp từ và bếp gas, phù hợp gia đình trẻ.", tags: ["Inox 5 đáy", "3 món", "Bếp từ", "Dụng cụ làm bếp"], glyph: "NOI", color: "#d5d8dc" },
+  { id: "chao-sau-long-da", name: "Chảo sâu lòng phủ đá 28cm", category: "Nồi & Chảo", room: "Nhà Bếp", price: 379000, originalPrice: 449000, rating: 4.8, stock: 15, featuredRank: 4, badge: "Giá tốt", description: "Lòng chảo sâu, dễ xào nấu, lớp phủ đá hạn chế bám dính và dễ vệ sinh sau bữa ăn.", tags: ["28cm", "Phủ đá", "Cán gỗ", "Bếp ga"], glyph: "CHA", color: "#cdb6a2" },
+  { id: "ke-sach-go-mini", name: "Kệ sách gỗ mini 4 tầng", category: "Kệ & Giá", room: "Phòng Khách", price: 729000, originalPrice: 860000, rating: 4.7, stock: 6, featuredRank: 5, badge: "Phong cách", description: "Kệ sách đa năng có thể dùng làm kệ trang trí, kệ cây nhỏ hoặc để hộp lưu trữ.", tags: ["4 tầng", "Gỗ công nghiệp", "Kệ trang trí", "Tranh"], glyph: "SHE", color: "#d9bf96" },
+  { id: "tu-giay-3-tang", name: "Tủ giày 3 tầng cửa lật", category: "Tủ & Lưu trữ", room: "Phòng Khách", price: 459000, originalPrice: 559000, rating: 4.6, stock: 11, featuredRank: 6, badge: "Gọn nhà", description: "Màu gỗ đậm, để ngay cửa ra vào, giữ giày dép gọn gàng và ít bám bụi hơn.", tags: ["3 tầng", "Cửa lật", "Kệ tivi", "Phòng khách"], glyph: "TUG", color: "#bea590" },
+  { id: "gia-treo-nha-tam", name: "Giá treo nhà tắm hút chân không", category: "Vệ sinh & Phụ trợ", room: "Nhà Vệ Sinh", price: 169000, originalPrice: 219000, rating: 4.7, stock: 17, featuredRank: 7, badge: "Tiện lợi", description: "Để sữa tắm, dầu gội và khăn tắm mà không cần khoan tường, phù hợp nhà thuê.", tags: ["Hút chân không", "Chống rỉ", "Nhà tắm", "Dụng cụ vệ sinh cá nhân"], glyph: "TRE", color: "#c9d8e8" },
+  { id: "xe-day-don-dep", name: "Xe đẩy dọn dẹp 3 ngăn", category: "Vệ sinh & Phụ trợ", room: "Nhà Kho", price: 649000, originalPrice: 790000, rating: 4.8, stock: 5, featuredRank: 8, badge: "Đa năng", description: "Để xếp nước lau, khăn, bình xịt và phụ kiện dọn dẹp theo từng ngăn riêng biệt.", tags: ["3 ngăn", "Có bánh xe", "Dọn dẹp", "Nhà kho"], glyph: "XED", color: "#d1c4df" },
+  { id: "ke-lo-vi-song", name: "Kệ để lò vi sóng 2 tầng", category: "Kệ & Giá", room: "Nhà Bếp", price: 399000, originalPrice: 475000, rating: 4.6, stock: 13, featuredRank: 9, badge: "Tiết kiệm diện tích", description: "Tầng dưới để lò vi sóng, tầng trên để bát đĩa và gia vị giúp bàn bếp gọn hơn.", tags: ["2 tầng", "Bếp", "Chịu lực", "Bồn rửa rau củ"], glyph: "KLV", color: "#d9ccb6" },
+  { id: "tu-dau-giuong-mini", name: "Tủ đầu giường mini 2 ngăn", category: "Tủ & Lưu trữ", room: "Phòng Ngủ", price: 519000, originalPrice: 620000, rating: 4.7, stock: 9, featuredRank: 10, badge: "Tối giản", description: "Kích thước vừa cạnh giường 1m6, để đèn ngủ, sách và các vật dụng cá nhân nhỏ gọn.", tags: ["2 ngăn", "Phòng ngủ", "Gỗ MDF", "Đèn ngủ"], glyph: "TDN", color: "#d8c6b7" },
+  { id: "may-hut-bui-cam-tay", name: "Máy hút bụi cầm tay mini", category: "Điện gia dụng", room: "Phòng Khách", price: 789000, originalPrice: 930000, rating: 4.8, stock: 7, featuredRank: 11, badge: "Cao cấp", description: "Lực hút ổn định, phù hợp ghế sofa, rèm cửa, kệ sách và những vị trí khó tiếp cận.", tags: ["Không dây", "Sạc USB-C", "3 đầu hút", "Sofa"], glyph: "VAC", color: "#cdd6e7" },
+  { id: "hop-luu-tru-trong-suot", name: "Hộp lưu trữ trong suốt 6 món", category: "Tủ & Lưu trữ", room: "Nhà Bếp", price: 249000, originalPrice: 315000, rating: 4.9, stock: 20, featuredRank: 12, badge: "Yêu thích", description: "Đựng gạo, nui, gia vị khô hoặc thực phẩm khô, giữ căn bếp sạch và dễ quan sát.", tags: ["6 món", "Trong suốt", "Nắp kín", "Tủ lạnh"], glyph: "BOX", color: "#dce5d4" },
+  { id: "ban-an-gap-gon-mini", name: "Bàn ăn gấp gọn mini 4 chỗ", category: "Bàn ăn & Phòng khách", room: "Nhà Bếp", price: 1290000, originalPrice: 1490000, rating: 4.6, stock: 4, featuredRank: 13, badge: "Căn hộ nhỏ", description: "Bàn ăn gấp gọn có thể sát tường khi không sử dụng, giúp tối ưu không gian sống.", tags: ["Gấp gọn", "4 chỗ", "Căn hộ mini", "Bàn ăn"], glyph: "BAN", color: "#dcc4a5" },
+  { id: "binh-giu-nhiet-gia-dinh", name: "Bình giữ nhiệt gia đình 1.5L", category: "Bàn ăn & Phòng khách", room: "Nhà Bếp", price: 329000, originalPrice: 399000, rating: 4.8, stock: 14, featuredRank: 14, badge: "Bán chạy", description: "Dùng trên bàn ăn, giữ nóng lâu, tay cầm chắc và vỏ ngoài trung tính để phối nội thất.", tags: ["1.5L", "Inox 304", "Bàn ăn"], glyph: "BNH", color: "#e2d2ad" },
+  { id: "sofa-bang-mini", name: "Sofa băng mini 3 chỗ bọc nỉ", category: "Bàn ăn & Phòng khách", room: "Phòng Khách", price: 3590000, originalPrice: 4190000, rating: 4.7, stock: 3, featuredRank: 15, badge: "Phòng khách", description: "Kích thước hợp căn hộ 2 phòng, màu kem dễ phối với tranh và đèn chùm.", tags: ["Sofa", "Phòng khách", "Đèn chùm"], glyph: "SOF", color: "#d9c9c0" },
+  { id: "voi-sen-tang-ap", name: "Vòi sen tăng áp 3 chế độ", category: "Vệ sinh & Phụ trợ", room: "Nhà Vệ Sinh", price: 259000, originalPrice: 319000, rating: 4.8, stock: 16, featuredRank: 16, badge: "Dễ lắp", description: "Tăng áp lực nước, dễ tháo lắp, phù hợp căn hộ và nhà phố.", tags: ["Vòi sen", "Bồn rửa mặt", "Nhà vệ sinh"], glyph: "SEN", color: "#d4e1ef" },
+  { id: "choi-quet-san-ban-lon", name: "Chổi quét sàn bản lớn", category: "Vệ sinh & Phụ trợ", room: "Nhà Kho", price: 139000, originalPrice: 179000, rating: 4.6, stock: 18, featuredRank: 17, badge: "Nhà kho", description: "Cán dài, lông chổi bền, hợp để quét nhà kho, sân thượng và lối đi rộng.", tags: ["Chổi quét nhà", "Quét sàn", "Nhà kho"], glyph: "CHO", color: "#d8d3c7" },
+  { id: "voi-tuoi-cay-cuon", name: "Vòi tưới cây cuộn 15m", category: "Vệ sinh & Phụ trợ", room: "Sân Vườn", price: 469000, originalPrice: 545000, rating: 4.7, stock: 9, featuredRank: 18, badge: "Sân vườn", description: "Dây tưới mềm, cuộn gọn, có đầu phun nhiều chế độ để chăm cây và rửa sân.", tags: ["Vòi tưới cây", "Sân vườn", "Tưới cây"], glyph: "VOI", color: "#cadfb8" },
+  { id: "ghe-gap-san-vuon", name: "Ghế gấp sân vườn khung sắt", category: "Bàn ăn & Phòng khách", room: "Sân Vườn", price: 389000, originalPrice: 459000, rating: 4.5, stock: 7, featuredRank: 19, badge: "Ngoài trời", description: "Ghế gấp dễ xếp gọn sau khi sử dụng, phù hợp sân vườn nhỏ và ban công.", tags: ["Ghế sân vườn", "Ngoài trời", "Gấp gọn"], glyph: "GHE", color: "#c3d3b6" }
 ];
+
 
 const STORAGE_KEY = "nha-xinh-mart-cart";
 const SHIPPING_THRESHOLD = 699000;
@@ -26,79 +27,79 @@ const SHIPPING_FEE = 30000;
 const PAGE_SIZE = 6;
 const DOMESTIC_BANKS = ["BIDV", "VCB", "OCB", "Techcombank", "VPBank", "Agribank"];
 const VISA_PROVIDERS = ["BIDV", "VCB", "OCB", "Techcombank", "HomeCredit", "SaigonHD", "Mcredit"];
-const ALL_ROOM_GROUP = "Tat ca nhom con";
+const ALL_ROOM_GROUP = "Tất cả nhóm con";
 const megaMenuData = {
   "Phòng Khách": [
-    { title: "Noi that chinh", items: ["Tivi", "Sofa", "Ban tra", "Ke tivi"] },
-    { title: "Anh sang & decor", items: ["Den chum", "Den cay", "Tranh treo", "Rem cua"] },
-    { title: "Tien ich phong khach", items: ["May loc khong khi", "Quat dung", "Ke sach", "Tu giay"] }
+    { title: "Nội thất chính", items: ["Tivi", "Sofa", "Bàn trà", "Kệ tivi"] },
+    { title: "Ánh sáng & trang trí", items: ["Đèn chùm", "Đèn cây", "Tranh treo", "Rèm cửa"] },
+    { title: "Tiện ích phòng khách", items: ["Máy lọc không khí", "Quạt đứng", "Kệ sách", "Tủ giày"] }
   ],
   "Nhà Bếp": [
-    { title: "Dung cu lam bep", items: ["Noi", "Chao", "Dao keo", "May xay"] },
-    { title: "Khu nau an", items: ["Bep tu", "Bep ga", "Tu lanh", "Bon rua rau cu"] },
-    { title: "Ban an & luu tru", items: ["Ban an", "Gia vi", "Ke tu gia vi", "Hop luu tru"] }
+    { title: "Dụng cụ làm bếp", items: ["Nồi", "Chảo", "Dao kéo", "Máy xay"] },
+    { title: "Khu nấu ăn", items: ["Bếp từ", "Bếp ga", "Tủ lạnh", "Bồn rửa rau củ"] },
+    { title: "Bàn ăn & lưu trữ", items: ["Bàn ăn", "Gia vị", "Kệ tủ gia vị", "Hộp lưu trữ"] }
   ],
   "Nhà Vệ Sinh": [
-    { title: "Ve sinh ca nhan", items: ["Ke sua tam", "Khan tam", "Guong", "Bon rua mat"] },
-    { title: "Dung cu don dep", items: ["Cay co toilet", "Ban chai chan", "Nuoc rua", "Keo gat nuoc"] },
-    { title: "Thiet bi nuoc", items: ["Voi sen", "Voi rua", "Gia treo", "Tu dung do"] }
+    { title: "Vệ sinh cá nhân", items: ["Kệ sữa tắm", "Khăn tắm", "Gương", "Bồn rửa mặt"] },
+    { title: "Dụng cụ dọn dẹp", items: ["Cây cọ toilet", "Bàn chải chà", "Nước rửa", "Kéo gạt nước"] },
+    { title: "Thiết bị nước", items: ["Vòi sen", "Vòi rửa", "Giá treo", "Tủ đựng đồ"] }
   ],
   "Phòng Ngủ": [
-    { title: "Noi that ngu", items: ["Nem", "Giuong", "Tu dau giuong", "Tu vai"] },
-    { title: "Cham soc ca nhan", items: ["Ban trang diem", "Guong", "Hop trang suc", "Ke dung my pham"] },
-    { title: "Anh sang & mem mai", items: ["Den ngu", "Bao goi", "Chan ga", "Rem che"] }
+    { title: "Nội thất ngủ", items: ["Nệm", "Giường", "Tủ đầu giường", "Tủ vải"] },
+    { title: "Chăm sóc cá nhân", items: ["Bàn trang điểm", "Gương", "Hộp trang sức", "Kệ đựng mỹ phẩm"] },
+    { title: "Ánh sáng & mềm mại", items: ["Đèn ngủ", "Bao gối", "Chăn ga", "Rèm che"] }
   ],
   "Nhà Kho": [
-    { title: "Ve sinh kho", items: ["Choi quet nha", "Quet san", "Ky hot rac", "Xe day don dep"] },
-    { title: "Sap xep vat dung", items: ["Ke kho", "Thung nhua", "Moc treo", "Tu dung do"] },
-    { title: "Dung cu ho tro", items: ["Voi tuoi cay", "Day noi", "Bao tay", "Ke sat"] }
+    { title: "Vệ sinh kho", items: ["Chổi quét nhà", "Quét sàn", "Ký hốt rác", "Xe đẩy dọn dẹp"] },
+    { title: "Sắp xếp vật dụng", items: ["Kệ kho", "Thùng nhựa", "Móc treo", "Tủ đựng đồ"] },
+    { title: "Dụng cụ hỗ trợ", items: ["Vòi tưới cây", "Dây nối", "Bao tay", "Kệ sắt"] }
   ],
   "Sân Vườn": [
-    { title: "Cham cay", items: ["Voi tuoi cay", "Binh tuoi", "Ke trong cay", "Chau cay"] },
-    { title: "Ngoai troi", items: ["Ghe san vuon", "Ban gap", "Den san vuon", "Keo cat la"] },
-    { title: "Lam sach san", items: ["Choi san", "Keo gat nuoc", "Hop dung dung cu", "Ke de ngoai troi"] }
+    { title: "Chăm cây", items: ["Vòi tưới cây", "Bình tưới", "Kệ trồng cây", "Chậu cây"] },
+    { title: "Ngoài trời", items: ["Ghế sân vườn", "Bàn gấp", "Đèn sân vườn", "Kéo cắt lá"] },
+    { title: "Làm sạch sân", items: ["Chổi sân", "Kéo gạt nước", "Hộp đựng dụng cụ", "Kệ để ngoài trời"] }
   ]
 };
 
 const storeMenuData = {
-  "Ho Chi Minh": [
+  "Hồ Chí Minh": [
     {
-      name: "Showroom Quan 1",
-      address: "123 Nguyen Thi Minh Khai, Phuong Ben Thanh, Quan 1, TP. Ho Chi Minh",
+      name: "Chi nhánh Quận 1",
+      address: "123 Nguyễn Thị Minh Khai, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh",
       phone: "028 7300 6868",
       hours: "08:00 - 21:00"
     },
     {
-      name: "Showroom Thu Duc",
-      address: "88 Vo Van Ngan, Phuong Binh Tho, TP. Thu Duc, TP. Ho Chi Minh",
+      name: "Chi nhánh Thủ Đức",
+      address: "88 Võ Văn Ngân, Phường Bình Thọ, TP. Thủ Đức, TP. Hồ Chí Minh",
       phone: "028 7300 6869",
       hours: "08:00 - 21:00"
     }
   ],
-  "Ha Noi": [
+  "Hà Nội": [
     {
-      name: "Showroom Cau Giay",
-      address: "45 Tran Thai Tong, Dich Vong Hau, Cau Giay, Ha Noi",
+      name: "Chi nhánh Cầu Giấy",
+      address: "45 Trần Thái Tông, Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
       phone: "024 7300 6868",
       hours: "08:00 - 21:00"
     },
     {
-      name: "Showroom Ha Dong",
-      address: "210 Quang Trung, Ha Cau, Ha Dong, Ha Noi",
+      name: "Chi nhánh Hà Đông",
+      address: "210 Quang Trung, Hà Cầu, Hà Đông, Hà Nội",
       phone: "024 7300 6869",
       hours: "08:00 - 21:00"
     }
   ],
-  "Da Nang": [
+  "Đà Nẵng": [
     {
-      name: "Showroom Hai Chau",
-      address: "169 Nguyen Van Linh, Nam Duong, Hai Chau, Da Nang",
+      name: "Chi nhánh Hải Châu",
+      address: "169 Nguyễn Văn Linh, Nam Dương, Hải Châu, Đà Nẵng",
       phone: "0236 730 6868",
       hours: "08:00 - 20:30"
     },
     {
-      name: "Showroom Thanh Khe",
-      address: "52 Dien Bien Phu, Chinh Gian, Thanh Khe, Da Nang",
+      name: "Chi nhánh Thanh Khê",
+      address: "52 Điện Biên Phủ, Chính Gián, Thanh Khê, Đà Nẵng",
       phone: "0236 730 6869",
       hours: "08:00 - 20:30"
     }
@@ -106,28 +107,28 @@ const storeMenuData = {
 };
 
 const serviceMenuData = {
-  "Cham soc KH 24/7": [
+  "Chăm sóc KH 24/7": [
     {
-      title: "Khieu nai",
-      description: "Tiep nhan va theo doi cac van de ve giao hang, san pham loi, sai mau hoac trai nghiem chua nhu mong doi.",
-      note: "Hotline uu tien: 1900 5301"
+      title: "Khiếu nại",
+      description: "Tiếp nhận và theo dõi các vấn đề về giao hàng, sản phẩm lỗi, sai mẫu hoặc trải nghiệm chưa như mong đợi.",
+      note: "Hotline ưu tiên: 1900 5301"
     },
     {
-      title: "Goi dat hang",
-      description: "Dat nhanh qua tong dai khi can tu van ngay ve ton kho, giao nhanh hoac combo phu hop cho tung khong gian.",
-      note: "Nhan don tu 08:00 - 21:00"
+      title: "Gọi đặt hàng",
+      description: "Đặt nhanh qua tổng đài khi cần tư vấn ngay về tồn kho, giao nhanh hoặc gói phù hợp cho từng không gian.",
+      note: "Nhận đơn từ 08:00 - 21:00"
     },
     {
-      title: "Tu van dich vu",
-      description: "Ho tro lap dat, doi tra, bao hanh mo phong va tu van lua chon goi giao nhan cho do gia dung cong kenh.",
-      note: "Phan hoi trong gio lam viec"
+      title: "Tư vấn dịch vụ",
+      description: "Hỗ trợ lắp đặt, đổi trả, bảo hành mô phỏng và tư vấn lựa chọn gói giao nhận cho đồ gia dụng cồng kềnh.",
+      note: "Phản hồi trong giờ làm việc"
     }
   ],
-  "Dang ky thanh vien": [
+  "Đăng ký thành viên": [
     {
-      title: "Dang ky thanh vien",
-      description: "Tao tai khoan thanh vien de luu thong tin mua hang, nhan uu dai sinh nhat, tich diem va cap nhat deal moi som hon.",
-      note: "Dang ky mien phi",
+      title: "Đăng ký thành viên",
+      description: "Tạo tài khoản thành viên để lưu thông tin mua hàng, nhận ưu đãi sinh nhật, tích điểm và cập nhật ưu đãi mới sớm hơn.",
+      note: "Đăng ký miễn phí",
       action: "open-register"
     }
   ]
@@ -135,47 +136,47 @@ const serviceMenuData = {
 
 const promotionPrograms = [
   {
-    badge: "Thanh vien moi",
-    title: "Tivi phong khach giam 15% cho khach hang vua dang ky",
-    description: "Ap dung cho tai khoan thanh vien moi trong 7 ngay dau, uu tien nhom tivi, ke tivi va decor phong khach.",
-    offer: "Giam 15%",
-    scope: "Don dau tien",
-    note: "Tang voucher lap dat 200.000d",
-    chips: ["Tivi treo tuong", "Ke tivi", "Thanh vien moi"]
+    badge: "Thành viên mới",
+    title: "Tivi phòng khách giảm 15% cho khách hàng vừa đăng ký",
+    description: "Áp dụng cho tài khoản thành viên mới trong 7 ngày đầu, ưu tiên nhóm tivi, kệ tivi và trang trí phòng khách.",
+    offer: "Giảm 15%",
+    scope: "Đơn đầu tiên",
+    note: "Tặng phiếu ưu đãi lắp đặt 200.000đ",
+    chips: ["Tivi treo tường", "Kệ tivi", "Thành viên mới"]
   },
   {
-    badge: "Hoa don lon",
-    title: "Thanh toan hoa don tren 5.000.000d duoc giam them 5%",
-    description: "Tu dong ap dung cho don gia dung gia tri cao nhu sofa, tu luu tru, ke sach va cac set noi that phong khach.",
-    offer: "Them 5%",
-    scope: "Don tu 5 trieu",
-    note: "Ap dung ca thanh toan the ngan hang",
-    chips: ["Sofa", "Tu luu tru", "Hoa don gia tri cao"]
+    badge: "Hóa đơn lớn",
+    title: "Thanh toán hóa đơn trên 5.000.000đ được giảm thêm 5%",
+    description: "Tự động áp dụng cho đơn gia dụng giá trị cao như sofa, tủ lưu trữ, kệ sách và các set nội thất phòng khách.",
+    offer: "Thêm 5%",
+    scope: "Đơn từ 5 triệu",
+    note: "Áp dụng cả thanh toán thẻ ngân hàng",
+    chips: ["Sofa", "Tủ lưu trữ", "Hóa đơn giá trị cao"]
   },
   {
-    badge: "Deal nha bep",
-    title: "Bo noi chao va dung cu nau an mua 2 mon giam 10%",
-    description: "Danh cho nguoi moi setup can bep, co the mix noi inox, chao sau long, ke gia vi va hop luu tru trong cung dot sale.",
-    offer: "Giam 10%",
-    scope: "Mix 2 mon bat ky",
-    note: "Tang mien phi giao nhanh noi thanh",
-    chips: ["Noi inox", "Chao chong dinh", "Ke gia vi"]
+    badge: "Ưu đãi nhà bếp",
+    title: "Bộ nồi chảo và dụng cụ nấu ăn mua 2 món giảm 10%",
+    description: "Dành cho người mới bố trí căn bếp, có thể kết hợp nồi inox, chảo sâu lòng, kệ gia vị và hộp lưu trữ trong cùng đợt khuyến mãi.",
+    offer: "Giảm 10%",
+    scope: "Kết hợp 2 món bất kỳ",
+    note: "Tặng miễn phí giao nhanh nội thành",
+    chips: ["Nồi inox", "Chảo chống dính", "Kệ gia vị"]
   },
   {
-    badge: "Khong tien mat",
-    title: "Quet the ngan hang hoac Visa nhan voucher 300.000d",
-    description: "Ap dung cho don tu 3.500.000d tro len, phu hop khi mua tu, ke, combo bep va cac mat hang gia dung cong kenh.",
-    offer: "Voucher 300k",
-    scope: "Don tu 3,5 trieu",
-    note: "Dung cho lan mua tiep theo",
-    chips: ["The ngan hang", "The Visa", "Voucher uu dai"]
+    badge: "Không tiền mặt",
+    title: "Quẹt thẻ ngân hàng hoặc Visa nhận phiếu ưu đãi 300.000đ",
+    description: "Áp dụng cho đơn từ 3.500.000đ trở lên, phù hợp khi mua tủ, kệ, bộ bếp và các mặt hàng gia dụng cồng kềnh.",
+    offer: "Phiếu ưu đãi 300k",
+    scope: "Đơn từ 3,5 triệu",
+    note: "Dùng cho lần mua tiếp theo",
+    chips: ["Thẻ ngân hàng", "Thẻ Visa", "Phiếu ưu đãi"]
   }
 ];
 
 const state = {
   search: "",
-  category: "Tat ca",
-  room: "Tat ca khong gian",
+  category: "Tất cả",
+  room: "Tất cả không gian",
   roomGroup: ALL_ROOM_GROUP,
   sort: "featured",
   view: "grid",
@@ -187,8 +188,8 @@ const state = {
   isAuthModalOpen: false,
   megaMenuRoom: "Phòng Khách",
   cart: loadCart(),
-  storeCity: "Ho Chi Minh",
-  serviceGroup: "Cham soc KH 24/7",
+  storeCity: "Hồ Chí Minh",
+  serviceGroup: "Chăm sóc KH 24/7",
   authView: "login",
   showAuthSocials: false,
   checkoutStep: "cart",
@@ -196,8 +197,8 @@ const state = {
   checkoutData: getDefaultCheckoutData()
 };
 
-const categories = ["Tat ca", ...new Set(products.map((item) => item.category))];
-const rooms = ["Tat ca khong gian", ...new Set(products.map((item) => item.room))];
+const categories = ["Tất cả", ...new Set(products.map((item) => item.category))];
+const rooms = ["Tất cả không gian", ...new Set(products.map((item) => item.room))];
 
 const resultCount = document.getElementById("result-count");
 const roomFilters = document.getElementById("room-filters");
@@ -382,7 +383,7 @@ document.addEventListener("keydown", (event) => {
 
 checkoutBtn.addEventListener("click", () => {
   if (!state.cart.length) {
-    showToast("Gio hang dang trong. Them san pham truoc khi dat hang nhe.");
+    showToast("Giỏ hàng đang trống. Thêm sản phẩm trước khi đặt hàng nhé.");
     return;
   }
 
@@ -390,7 +391,7 @@ checkoutBtn.addEventListener("click", () => {
 });
 
 bundleCtaBtn.addEventListener("click", () => {
-  const kitchenProduct = products.find((product) => product.category === "Noi & Chao") || products.find((product) => product.tags.includes("Nha Bep"));
+  const kitchenProduct = products.find((product) => product.category === "Nồi & Chảo") || products.find((product) => product.room === "Nhà Bếp");
   if (kitchenProduct) {
     setRoomFilter(kitchenProduct.room);
   }
@@ -468,7 +469,7 @@ document.addEventListener("click", (event) => {
   }
 
   if (target.matches("[data-filter-target]")) {
-    setCategoryFilter(target.dataset.filterTarget || "Tat ca");
+    setCategoryFilter(target.dataset.filterTarget || "Tất cả");
     document.getElementById("catalogue").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -485,7 +486,7 @@ document.addEventListener("click", (event) => {
       return searchTarget.includes(item.toLowerCase());
     });
 
-    state.category = "Tat ca";
+    state.category = "Tất cả";
     state.room = room;
     state.roomGroup = ALL_ROOM_GROUP;
     state.search = hasMatch ? item.toLowerCase() : "";
@@ -495,24 +496,24 @@ document.addEventListener("click", (event) => {
     toggleMegaMenu(false);
 
     if (!hasMatch) {
-      showToast(`Da chuyen sang ${room}. Ban co the bo sung them san pham cho nhom ${item} sau.`);
+      showToast(`Đã chuyển sang ${room}. Bạn có thể bổ sung thêm sản phẩm cho nhóm ${item} sau.`);
     }
 
     document.getElementById("catalogue").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   if (target.matches("[data-store-city]")) {
-    state.storeCity = target.dataset.storeCity || "Ho Chi Minh";
+    state.storeCity = target.dataset.storeCity || "Hồ Chí Minh";
     renderStoreMenu();
   }
 
   const serviceGroupButton = target.closest("[data-service-group]");
   if (serviceGroupButton instanceof HTMLElement) {
-    const nextGroup = serviceGroupButton.dataset.serviceGroup || "Cham soc KH 24/7";
+    const nextGroup = serviceGroupButton.dataset.serviceGroup || "Chăm sóc KH 24/7";
     state.serviceGroup = nextGroup;
     renderServiceMenu();
 
-    if (nextGroup === "Dang ky thanh vien") {
+    if (nextGroup === "Đăng ký thành viên") {
       toggleServiceMenu(false);
       toggleAuthModal(true, "register");
     }
@@ -525,11 +526,11 @@ document.addEventListener("click", (event) => {
   }
 
   if (target.matches("[data-category-filter]")) {
-    setCategoryFilter(target.dataset.categoryFilter || "Tat ca");
+    setCategoryFilter(target.dataset.categoryFilter || "Tất cả");
   }
 
   if (target.matches("[data-room-filter]")) {
-    setRoomFilter(target.dataset.roomFilter || "Tat ca khong gian");
+    setRoomFilter(target.dataset.roomFilter || "Tất cả không gian");
   }
 
   if (target.matches("[data-room-group]")) {
@@ -548,7 +549,7 @@ document.addEventListener("click", (event) => {
     const productId = target.dataset.previewProduct;
     const product = findProduct(productId);
     if (product) {
-      showToast(`${product.name} dang o che do demo frontend. Ban co the mo rong sang trang chi tiet sau.`);
+      showToast(`${product.name} đang ở chế độ mô phỏng giao diện. Bạn có thể mở rộng sang trang chi tiết sau.`);
     }
   }
 
@@ -612,7 +613,7 @@ function renderStoreMenu() {
       <p class="store-branch-address">${branch.address}</p>
       <div class="store-branch-meta">
         <p><strong>Hotline:</strong> ${branch.phone}</p>
-        <p><strong>Gio mo cua:</strong> ${branch.hours}</p>
+        <p><strong>Giờ mở cửa:</strong> ${branch.hours}</p>
       </div>
     </article>
   `).join("");
@@ -661,21 +662,21 @@ function renderPromotionCarousel() {
 
       <div class="promotion-summary">
         <div class="promotion-highlight">
-          <span>Uu dai noi bat</span>
+          <span>Ưu đãi nổi bật</span>
           <strong>${program.offer}</strong>
           <p>${program.note}</p>
         </div>
 
         <div class="promotion-metrics">
           <article class="promotion-metric">
-            <span>Ap dung</span>
+            <span>Áp dụng</span>
             <strong>${program.scope}</strong>
-            <p>Uu dai tu dong doi voi cac don hang nam trong dieu kien cua chuong trinh.</p>
+            <p>Ưu đãi tự động đối với các đơn hàng nằm trong điều kiện của chương trình.</p>
           </article>
           <article class="promotion-metric">
-            <span>Danh muc</span>
+            <span>Danh mục</span>
             <strong>${program.badge}</strong>
-            <p>Ban co the dung khu vuc loc san pham o tren de tim nhanh nhung mon dang duoc uu dai.</p>
+            <p>Bạn có thể dùng khu vực lọc sản phẩm ở trên để tìm nhanh những món đang được ưu đãi.</p>
           </article>
         </div>
       </div>
@@ -695,11 +696,11 @@ function updatePromotionCarousel() {
       class="promotion-dot ${state.promotionIndex === index ? "active" : ""}"
       type="button"
       data-promotion-index="${index}"
-      aria-label="Xem khuyen mai ${index + 1}: ${program.badge}"
+      aria-label="Xem khuyến mãi ${index + 1}: ${program.badge}"
       aria-pressed="${state.promotionIndex === index}"
     ></button>
   `).join("");
-  promotionStatus.textContent = `Dang hien ${state.promotionIndex + 1}/${totalPromotions}: ${currentPromotion.title}`;
+  promotionStatus.textContent = `Đang hiển ${state.promotionIndex + 1}/${totalPromotions}: ${currentPromotion.title}`;
 }
 
 function setPromotionSlide(index) {
@@ -826,7 +827,7 @@ function renderTopFilters() {
 }
 
 function getActiveRoomGroups() {
-  if (state.room === "Tat ca khong gian") {
+  if (state.room === "Tất cả không gian") {
     return [];
   }
 
@@ -850,15 +851,15 @@ function renderProducts() {
   const start = (state.page - 1) * PAGE_SIZE;
   const pageItems = filteredProducts.slice(start, start + PAGE_SIZE);
 
-  resultCount.textContent = `${filteredProducts.length} san pham`;
+  resultCount.textContent = `${filteredProducts.length} sản phẩm`;
   productGrid.classList.toggle("list-mode", state.view === "list");
   renderTopFilters();
 
   if (!filteredProducts.length) {
     productGrid.innerHTML = `
       <article class="empty-state">
-        <h3>Khong tim thay san pham phu hop</h3>
-        <p>Thu doi tu khoa tim kiem hoac chuyen qua nhom ke, tu, noi chao khac de xem them mat hang.</p>
+        <h3>Không tìm thấy sản phẩm phù hợp</h3>
+        <p>Thử đổi từ khóa tìm kiếm hoặc chuyển qua nhóm kệ, tủ, nồi chảo khác để xem thêm mặt hàng.</p>
       </article>
     `;
     pagination.innerHTML = "";
@@ -869,7 +870,7 @@ function renderProducts() {
     <article class="product-card" style="animation-delay: ${index * 60}ms">
       <div class="product-media" style="--visual-color: ${product.color}">
         <span class="product-badge">${product.badge}</span>
-        <span class="product-stock">Con ${product.stock}</span>
+        <span class="product-stock">Còn ${product.stock}</span>
         <div class="product-icon" aria-hidden="true">${product.glyph}</div>
       </div>
 
@@ -896,7 +897,7 @@ function renderProducts() {
 
           <div class="product-actions">
             <button class="link-btn" type="button" data-preview-product="${product.id}">Xem nhanh</button>
-            <button class="add-btn" type="button" data-add-to-cart="${product.id}">Them gio</button>
+            <button class="add-btn" type="button" data-add-to-cart="${product.id}">Thêm giỏ</button>
           </div>
         </div>
       </div>
@@ -915,7 +916,7 @@ function renderPagination(totalItems, pageCount) {
   const pageButtons = [];
   pageButtons.push(`
     <button class="page-btn" type="button" data-page-action="prev" ${state.page === 1 ? "disabled" : ""}>
-      Truoc
+      Trước
     </button>
   `);
 
@@ -959,7 +960,7 @@ function setCategoryFilter(category) {
 }
 
 function setRoomFilter(room) {
-  state.category = "Tat ca";
+  state.category = "Tất cả";
   state.room = room;
   state.roomGroup = ALL_ROOM_GROUP;
   state.page = 1;
@@ -974,10 +975,10 @@ function setRoomGroup(group) {
 
 function getFilteredProducts() {
   return [...products]
-    .filter((product) => state.category === "Tat ca" || product.category === state.category)
-    .filter((product) => state.room === "Tat ca khong gian" || product.room === state.room)
+    .filter((product) => state.category === "Tất cả" || product.category === state.category)
+    .filter((product) => state.room === "Tất cả không gian" || product.room === state.room)
     .filter((product) => {
-      if (state.room === "Tat ca khong gian" || state.roomGroup === ALL_ROOM_GROUP) {
+      if (state.room === "Tất cả không gian" || state.roomGroup === ALL_ROOM_GROUP) {
         return true;
       }
 
@@ -1033,7 +1034,7 @@ function renderCart() {
             <strong>${cartItem.quantity}</strong>
             <button class="quantity-btn" type="button" data-cart-action="increase" data-product-id="${product.id}">+</button>
           </div>
-          <button class="remove-btn" type="button" data-cart-action="remove" data-product-id="${product.id}">Xoa san pham</button>
+            <button class="remove-btn" type="button" data-cart-action="remove" data-product-id="${product.id}">Xóa sản phẩm</button>
         </div>
         <strong>${formatCurrency(product.price * cartItem.quantity)}</strong>
       </article>
@@ -1042,8 +1043,8 @@ function renderCart() {
 
   cartItems.innerHTML = items || `
     <article class="empty-state">
-      <h3>Gio hang dang trong</h3>
-      <p>Them mot vai mon ke, tu, noi chao hoac phu kien nha cua de tiep tuc checkout.</p>
+      <h3>Giỏ hàng đang trống</h3>
+      <p>Thêm một vài món kệ, tủ, nồi chảo hoặc phụ kiện nhà cửa để tiếp tục thanh toán.</p>
     </article>
   `;
 
@@ -1055,7 +1056,7 @@ function renderCart() {
 
   cartCount.textContent = String(totals.quantity);
   subtotalNode.textContent = formatCurrency(totals.subtotal);
-  shippingNode.textContent = totals.shipping ? formatCurrency(totals.shipping) : "Mien phi";
+  shippingNode.textContent = totals.shipping ? formatCurrency(totals.shipping) : "Miễn phí";
   totalNode.textContent = formatCurrency(totals.total);
   persistCart();
   renderDrawerStage();
@@ -1071,7 +1072,7 @@ function addToCart(productId, product) {
   }
 
   renderCart();
-  showToast(`Da them ${product.name} vao gio hang.`);
+  showToast(`Đã thêm ${product.name} vào giỏ hàng.`);
 }
 
 function handleCartAction(action, productId) {
@@ -1141,7 +1142,7 @@ function renderCheckout() {
   }).join("");
 
   checkoutSubtotalNode.textContent = formatCurrency(totals.subtotal);
-  checkoutShippingNode.textContent = totals.shipping ? formatCurrency(totals.shipping) : "Mien phi";
+  checkoutShippingNode.textContent = totals.shipping ? formatCurrency(totals.shipping) : "Miễn phí";
   checkoutTotalNode.textContent = formatCurrency(totals.total);
 }
 
@@ -1156,23 +1157,23 @@ function renderPaymentDetail() {
     paymentDetail.innerHTML = `
       <div class="field-grid">
         <label class="form-field">
-          <span>Chon ngan hang</span>
+          <span>Chọn ngân hàng</span>
           <select name="domesticBank">
             ${buildOptionMarkup(DOMESTIC_BANKS, state.checkoutData.domesticBank)}
           </select>
         </label>
 
         <label class="form-field">
-          <span>So the</span>
+          <span>Số thẻ</span>
           <input name="domesticCardNumber" type="text" inputmode="numeric" placeholder="9704 0000 0000 0000" autocomplete="cc-number" value="${escapeHtml(state.checkoutData.domesticCardNumber)}">
         </label>
 
         <label class="form-field full-row">
-          <span>Ho ten chu the</span>
-          <input name="domesticCardName" type="text" placeholder="NGUYEN VAN A" autocomplete="cc-name" value="${escapeHtml(state.checkoutData.domesticCardName)}">
+          <span>Họ tên chủ thẻ</span>
+          <input name="domesticCardName" type="text" placeholder="NGUYỄN VĂN A" autocomplete="cc-name" value="${escapeHtml(state.checkoutData.domesticCardName)}">
         </label>
       </div>
-      <p class="payment-hint">Ho tro thanh toan qua BIDV, VCB, OCB va cac ngan hang noi dia khac.</p>
+      <p class="payment-hint">Hỗ trợ thanh toán qua BIDV, VCB, OCB và các ngân hàng nội địa khác.</p>
     `;
     return;
   }
@@ -1181,33 +1182,33 @@ function renderPaymentDetail() {
     paymentDetail.innerHTML = `
       <div class="field-grid">
         <label class="form-field">
-          <span>Ngan hang / cong ty phat hanh</span>
+          <span>Ngân hàng / công ty phát hành</span>
           <select name="visaProvider">
             ${buildOptionMarkup(VISA_PROVIDERS, state.checkoutData.visaProvider)}
           </select>
         </label>
 
         <label class="form-field">
-          <span>So the</span>
+          <span>Số thẻ</span>
           <input name="visaCardNumber" type="text" inputmode="numeric" placeholder="4111 1111 1111 1111" autocomplete="cc-number" value="${escapeHtml(state.checkoutData.visaCardNumber)}">
         </label>
 
         <label class="form-field full-row">
-          <span>Ho ten chu the</span>
-          <input name="visaCardName" type="text" placeholder="NGUYEN VAN A" autocomplete="cc-name" value="${escapeHtml(state.checkoutData.visaCardName)}">
+          <span>Họ tên chủ thẻ</span>
+          <input name="visaCardName" type="text" placeholder="NGUYỄN VĂN A" autocomplete="cc-name" value="${escapeHtml(state.checkoutData.visaCardName)}">
         </label>
 
         <label class="form-field">
-          <span>Ngay het han</span>
+          <span>Ngày hết hạn</span>
           <input name="visaExpiry" type="text" inputmode="numeric" placeholder="MM/YY" autocomplete="cc-exp" value="${escapeHtml(state.checkoutData.visaExpiry)}">
         </label>
 
         <label class="form-field">
-          <span>Ma the / CVV</span>
+          <span>Mã thẻ / CVV</span>
           <input name="visaCvv" type="password" inputmode="numeric" placeholder="123" autocomplete="cc-csc" value="${escapeHtml(state.checkoutData.visaCvv)}">
         </label>
       </div>
-      <p class="payment-hint">Ho tro the Visa tu BIDV, VCB, OCB, HomeCredit, SaigonHD va mot so don vi khac.</p>
+      <p class="payment-hint">Hỗ trợ thẻ Visa từ BIDV, VCB, OCB, HomeCredit, SaigonHD và một số đơn vị khác.</p>
     `;
     return;
   }
@@ -1215,7 +1216,7 @@ function renderPaymentDetail() {
   paymentDetail.innerHTML = `
     <div class="payment-note-box">
       <p class="payment-hint">
-        Ban se thanh toan bang tien mat cho nhan vien giao hang sau khi nhan du san pham. Khong can nhap thong tin the.
+        Bạn sẽ thanh toán bằng tiền mặt cho nhân viên giao hàng sau khi nhận đủ sản phẩm. Không cần nhập thông tin thẻ.
       </p>
     </div>
   `;
@@ -1223,7 +1224,7 @@ function renderPaymentDetail() {
 
 function setCheckoutStep(step) {
   if (step === "checkout" && !state.cart.length) {
-    showToast("Gio hang dang trong. Them san pham truoc khi sang buoc thanh toan.");
+    showToast("Giỏ hàng đang trống. Thêm sản phẩm trước khi sang bước thanh toán.");
     return;
   }
 
@@ -1271,7 +1272,7 @@ function handleCheckoutSubmit(event) {
   event.preventDefault();
 
   if (!state.cart.length) {
-    showToast("Gio hang dang trong. Khong the tao don hang.");
+    showToast("Giỏ hàng đang trống. Không thể tạo đơn hàng.");
     state.checkoutStep = "cart";
     renderDrawerStage();
     return;
@@ -1289,7 +1290,7 @@ function handleCheckoutSubmit(event) {
   state.paymentMethod = "cod";
   state.checkoutData = getDefaultCheckoutData();
   renderCart();
-  showToast(`Da ghi nhan don hang do gia dung thanh toan bang ${paymentLabel}. Day la thao tac mo phong frontend.`);
+  showToast(`Đã ghi nhận đơn hàng đồ gia dụng thanh toán bằng ${paymentLabel}. Đây là thao tác mô phỏng giao diện.`);
 }
 
 function validateCheckout() {
@@ -1297,42 +1298,42 @@ function validateCheckout() {
   const phoneDigits = formData.customerPhone.replace(/\D/g, "");
 
   if (!formData.customerName.trim()) {
-    return "Vui long nhap ho ten nguoi nhan.";
+    return "Vui lòng nhập họ tên người nhận.";
   }
 
   if (phoneDigits.length < 9) {
-    return "Vui long nhap so dien thoai hop le.";
+    return "Vui lòng nhập số điện thoại hợp lệ.";
   }
 
   if (!formData.customerAddress.trim()) {
-    return "Vui long nhap dia chi giao hang.";
+    return "Vui lòng nhập địa chỉ giao hàng.";
   }
 
   if (state.paymentMethod === "bank-card") {
     if (formData.domesticCardNumber.replace(/\D/g, "").length < 12) {
-      return "Vui long nhap so the ngan hang hop le.";
+      return "Vui lòng nhập số thẻ ngân hàng hợp lệ.";
     }
 
     if (!formData.domesticCardName.trim()) {
-      return "Vui long nhap ho ten chu the ngan hang.";
+      return "Vui lòng nhập họ tên chủ thẻ ngân hàng.";
     }
   }
 
   if (state.paymentMethod === "visa") {
     if (formData.visaCardNumber.replace(/\D/g, "").length < 13) {
-      return "Vui long nhap so the Visa hop le.";
+      return "Vui lòng nhập số thẻ Visa hợp lệ.";
     }
 
     if (!formData.visaCardName.trim()) {
-      return "Vui long nhap ho ten chu the Visa.";
+      return "Vui lòng nhập họ tên chủ thẻ Visa.";
     }
 
     if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(formData.visaExpiry)) {
-      return "Vui long nhap ngay het han theo dinh dang MM/YY.";
+      return "Vui lòng nhập ngày hết hạn theo định dạng MM/YY.";
     }
 
     if (!/^\d{3,4}$/.test(formData.visaCvv)) {
-      return "Vui long nhap ma CVV hop le.";
+      return "Vui lòng nhập mã CVV hợp lệ.";
     }
   }
 
@@ -1374,8 +1375,8 @@ function handleAuthModalClick(event) {
 
   const socialTrigger = target.closest("[data-social-login]");
   if (socialTrigger instanceof HTMLElement) {
-    const provider = socialTrigger.dataset.socialLogin || "mang xa hoi";
-    showToast(`Dang nhap bang ${provider} dang o che do demo frontend.`);
+    const provider = socialTrigger.dataset.socialLogin || "mạng xã hội";
+    showToast(`Đăng nhập bằng ${provider} đang ở chế độ mô phỏng giao diện.`);
     toggleAuthModal(false, "login");
   }
 }
@@ -1408,13 +1409,13 @@ function handleAuthLoginSubmit(event) {
   const loginPass = String(formData.get("loginPass") || "").trim();
 
   if (!loginUser || !loginPass) {
-    showToast("Vui long nhap day du user va pass de dang nhap.");
+    showToast("Vui lòng nhập đầy đủ tài khoản và mật khẩu để đăng nhập.");
     return;
   }
 
   authLoginForm.reset();
   toggleAuthModal(false, "login");
-  showToast(`Da dang nhap demo cho tai khoan ${loginUser}.`);
+  showToast(`Đã đăng nhập mô phỏng cho tài khoản ${loginUser}.`);
 }
 
 function handleAuthRegisterSubmit(event) {
@@ -1430,34 +1431,34 @@ function handleAuthRegisterSubmit(event) {
   const registerOtp = String(formData.get("registerOtp") || "").trim();
 
   if (!registerLastName || !registerFirstName || !registerPhone || !registerEmail || !registerUser || !registerPass || !registerOtp) {
-    showToast("Vui long dien day du ho ten, SDT, email, user, pass va ma OTP.");
+    showToast("Vui lòng điền đầy đủ họ tên, SĐT, email, tài khoản, mật khẩu và mã OTP.");
     return;
   }
 
   if (!/^\d{9,11}$/.test(registerPhone)) {
-    showToast("So dien thoai chua hop le. Ban hay nhap 9 den 11 chu so.");
+    showToast("Số điện thoại chưa hợp lệ. Bạn hãy nhập 9 đến 11 chữ số.");
     return;
   }
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(registerEmail)) {
-    showToast("Email chua dung dinh dang. Ban kiem tra lai nhe.");
+    showToast("Email chưa đúng định dạng. Bạn kiểm tra lại nhé.");
     return;
   }
 
   if (registerPass.length < 6) {
-    showToast("Mat khau demo can it nhat 6 ky tu.");
+    showToast("Mật khẩu mô phỏng cần ít nhất 6 ký tự.");
     return;
   }
 
   if (!/^\d{4,8}$/.test(registerOtp)) {
-    showToast("Ma OTP chi nen gom 4 den 8 chu so.");
+    showToast("Mã OTP chỉ nên gồm 4 đến 8 chữ số.");
     return;
   }
 
   const memberName = `${registerLastName} ${registerFirstName}`.trim();
   authRegisterForm.reset();
   toggleAuthModal(false, "login");
-  showToast(`Da tao tai khoan demo cho ${memberName || registerUser}.`);
+  showToast(`Đã tạo tài khoản mô phỏng cho ${memberName || registerUser}.`);
 }
 
 function loadCart() {
@@ -1551,14 +1552,14 @@ function formatExpiryInput(value) {
 
 function getPaymentMethodLabel(method) {
   if (method === "bank-card") {
-    return "the ngan hang";
+    return "Thẻ ngân hàng";
   }
 
   if (method === "visa") {
-    return "the Visa";
+    return "Thẻ Visa";
   }
 
-  return "tien mat khi nhan hang";
+  return "Tiền mặt khi nhận hàng";
 }
 
 function escapeHtml(value) {
